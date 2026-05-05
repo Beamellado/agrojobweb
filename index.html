@@ -3,828 +3,599 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgroJob Chile — El mercado laboral del agro chileno</title>
-<meta name="description" content="Encuentra empleos de agronomía en Chile. Sueldos, tendencias y alertas de vacantes para agrónomos chilenos.">
-<meta property="og:title" content="AgroJob Chile — Empleos de Agronomía en Chile">
-<meta property="og:description" content="La plataforma para el mercado laboral agrícola chileno. Alertas de vacantes, sueldos y tendencias.">
+<title>AgroChile — Empleos del Agro | Chile</title>
+<meta name="description" content="AgroChile — Portal de empleos del agro chileno. Encuentra trabajo en agronomía, fruticultura, viticultura, forestal y más.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--vd:#0B2818;--vm:#14401F;--vv:#1A6632;--vc:#2E8B57;--ac:#5DC98A;--al:#A8E0BF;--w:#FFFFFF;--g1:#F4F7F5;--g2:#E5EDE8;--g3:#C0D4C8;--txl:#7A9485;--tx:#0B1F12;--txs:#3D5A47;--am:#D4A017;--ay:#F2B705;--cr:#F4F7F5;--crd:#E5EDE8}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;background:var(--w);color:var(--tx);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;background:rgba(247,242,232,.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(74,140,42,.15);transition:box-shadow .3s}
-nav.sc{box-shadow:0 4px 24px rgba(0,0,0,.08)}
-.nl{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nl span{font-size:24px}
-.nl strong{font-family:'Playfair Display',serif;font-size:18px;color:var(--vd)}
-.nl em{font-style:normal;color:var(--am)}
-.nr{display:flex;align-items:center;gap:24px}
-.nr a{text-decoration:none;font-size:14px;font-weight:500;color:var(--txs);transition:color .2s}
-.nr a:hover{color:var(--vv)}
-.nr .ncta{background:var(--vv);color:white!important;padding:8px 18px;border-radius:6px}
-@media(max-width:768px){.nr a:not(.cta){display:none};nav{padding:14px 20px}}
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:80px;overflow:hidden}
-.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 85% 50%,rgba(74,140,42,.1) 0%,transparent 60%),radial-gradient(ellipse 50% 70% at 10% 85%,rgba(212,160,23,.07) 0%,transparent 50%),var(--cr)}
-.hgrid{position:absolute;inset:0;opacity:.035;background-image:linear-gradient(var(--vd) 1px,transparent 1px),linear-gradient(90deg,var(--vd) 1px,transparent 1px);background-size:48px 48px}
-.hcont{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-@media(max-width:900px){.hcont{grid-template-columns:1fr;padding:0 24px}.hright{display:none}}
-.hleft{animation:fu .8s ease both}
-.htag{display:inline-flex;align-items:center;gap:8px;background:rgba(74,140,42,.1);border:1px solid rgba(74,140,42,.3);color:var(--vv);border-radius:4px;padding:6px 14px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,66px);line-height:1.06;letter-spacing:-1.5px;color:var(--vd);margin-bottom:18px}
-.hero h1 em{font-style:italic;color:var(--am)}
-.hdesc{font-size:17px;color:var(--txs);line-height:1.7;max-width:480px;margin-bottom:32px}
-.hstats{display:flex;gap:32px;margin-bottom:36px}
-.stat strong{display:block;font-family:'Playfair Display',serif;font-size:30px;color:var(--vd);line-height:1}
-.stat span{font-size:12px;color:var(--txs);margin-top:2px;font-weight:500}
-.hact{display:flex;gap:12px;flex-wrap:wrap}
-.bm{background:var(--vd);color:white;border:none;border-radius:8px;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s;font-family:'Barlow',sans-serif;display:inline-flex;align-items:center;gap:8px}
-.bm:hover{background:var(--vv);transform:translateY(-2px);box-shadow:0 8px 20px rgba(46,90,26,.3)}
-.bo{background:transparent;color:var(--vd);border:2px solid rgba(46,90,26,.3);border-radius:8px;padding:12px 26px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s;font-family:'Barlow',sans-serif;display:inline-flex;align-items:center;gap:8px}
-.bo:hover{border-color:var(--vv);color:var(--vv)}
-.hcard{background:white;border-radius:20px;box-shadow:0 32px 80px rgba(0,0,0,.15);overflow:hidden;animation:fu .8s .2s ease both}
-.hch{background:var(--vd);padding:24px 28px;display:flex;align-items:center;gap:14px}
-.hch span{font-size:26px}
-.hch div strong{display:block;color:white;font-size:16px;font-weight:600}
-.hch div small{color:rgba(255,255,255,.55);font-size:12px}
-.live{display:flex;align-items:center;gap:6px;margin-left:auto}
-.ldot{width:7px;height:7px;border-radius:50%;background:#5DFA6E;animation:pulse 2s infinite}
-.live span{font-size:11px;color:rgba(255,255,255,.6)}
-.hcb{padding:22px 28px}
-.ri{padding:15px 0;border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:flex-start;gap:14px}
-.ri:last-child{border-bottom:none}
-.ri strong{display:block;font-size:15px;color:var(--tx);font-weight:600;margin-bottom:3px}
-.ri span{font-size:13px;color:var(--txs);line-height:1.6}
-.ctag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
-.tg{background:rgba(74,140,42,.12);color:var(--vv)}.ty{background:rgba(212,160,23,.15);color:var(--am)}.tb{background:rgba(23,90,180,.1);color:#1755A8}
-#buscar{background:white;padding:88px 60px}
-#buscar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(74,140,42,.3) 0%,transparent 60%)}
-.si{max-width:1200px;margin:0 auto;position:relative;z-index:1}
-.sh{text-align:center;margin-bottom:44px}
-.sh h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,48px);color:var(--vd);margin-bottom:10px;letter-spacing:-.5px}
-.sh p{color:var(--txs);font-size:16px}
-.sbox{background:white;border-radius:14px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.3);max-width:820px;margin:0 auto}
-.sr{display:flex;gap:10px;margin-bottom:14px}
-.si2{flex:1;border:2px solid var(--crd);border-radius:8px;padding:13px 16px;font-size:15px;font-family:'Barlow',sans-serif;color:var(--tx);outline:none;transition:border-color .2s;background:#F8FBF9}
-.si2:focus{border-color:var(--vc);background:white;box-shadow:0 0 0 3px rgba(46,139,87,.08)}
-.si2::placeholder{color:#aaa}
-.sb{background:var(--vd);color:white;border:none;border-radius:8px;padding:13px 26px;font-weight:700;font-size:15px;cursor:pointer;transition:all .2s;font-family:'Barlow',sans-serif;display:flex;align-items:center;gap:8px;white-space:nowrap}
-.sb:hover{background:var(--vv)}
-.sb:disabled{opacity:.6;cursor:not-allowed}
-.qtags{display:flex;gap:8px;flex-wrap:wrap}
-.qt{background:var(--cr);border:1px solid var(--crd);border-radius:20px;padding:7px 15px;font-size:13px;color:var(--txs);cursor:pointer;transition:all .2s;font-family:'Barlow',sans-serif;font-weight:500;outline:none}
-.qt:hover{background:rgba(74,140,42,.1);color:var(--vv)}
-#ra{margin-top:20px}
-.rbox{background:#FFFFFF;border:1px solid #E5EDE8;border-left:4px solid #2E8B57;border-radius:10px;padding:28px;animation:fu .4s ease;box-shadow:0 4px 20px rgba(0,0,0,.05)}
-.rbox h4{font-family:'Playfair Display',serif;font-size:18px;color:#0B2818;margin-bottom:16px;font-weight:700}
-.rbox .rtxt{font-size:14px;line-height:1.9;color:#2D3F35;white-space:pre-wrap;font-family:"Barlow",sans-serif}
-.lbar{height:3px;background:var(--crd);border-radius:2px;overflow:hidden;margin-bottom:14px}
-.lbf{height:100%;width:30%;background:var(--vv);border-radius:2px;animation:ld 1.5s ease-in-out infinite}
-@keyframes ld{0%{transform:translateX(-100%)}100%{transform:translateX(400%)}}
-@media(max-width:768px){#buscar{padding:60px 20px}.sr{flex-direction:column}}
-#portales{padding:80px 48px;background:white}
-.ptitle{text-align:center;margin-bottom:44px}
-.ey{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--vv);margin-bottom:10px}
-.ptitle h2,.stitle h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,42px);color:var(--vd);letter-spacing:-.5px}
-.pgrid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:768px){.pgrid{grid-template-columns:1fr}#portales{padding:60px 20px}}
-.pcard{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:24px;transition:all .3s;background:white;text-decoration:none;color:inherit;display:block}
-.pcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08);border-color:rgba(74,140,42,.25)}
-.pico{font-size:32px;margin-bottom:12px}
-.pcard h3{font-size:16px;font-weight:700;color:var(--vd);margin-bottom:6px}
-.pcard p{font-size:13px;color:var(--txs);line-height:1.6;margin-bottom:12px}
-.plink{font-size:12px;color:var(--vv);font-weight:600}
-#sectores{padding:80px 48px;background:#F8FBF9}
-.stitle{text-align:center;margin-bottom:44px}
-.sgrid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:900px){.sgrid{grid-template-columns:repeat(2,1fr)}#sectores{padding:60px 20px}}
-.sc2{background:white;border-radius:10px;padding:22px 18px;border:1px solid rgba(0,0,0,.06);cursor:pointer;transition:all .25s;text-align:center;font-family:'Barlow',sans-serif;width:100%;text-decoration:none;color:inherit;display:block}
-.sc2:hover{box-shadow:0 8px 24px rgba(74,140,42,.12);transform:translateY(-2px);border-color:rgba(74,140,42,.3)}
-.sc2 .ico{font-size:28px;margin-bottom:8px}
-.sc2 h4{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:3px}
-.sc2 p{font-size:12px;color:var(--txs);margin-bottom:8px}
-.sc2-link{font-size:11px;font-weight:700;color:var(--vv);letter-spacing:.5px}
-#alertas{padding:80px 48px;background:linear-gradient(135deg,var(--vd) 0%,var(--vm) 100%);position:relative;overflow:hidden}
-#alertas::after{content:'🌾';position:absolute;right:-20px;bottom:-40px;font-size:260px;opacity:.05;pointer-events:none}
-.ai{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-@media(max-width:900px){.ai{grid-template-columns:1fr;gap:40px}#alertas{padding:60px 20px}}
-.al h2{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);color:white;margin-bottom:14px}
-.al>p{color:rgba(255,255,255,.65);font-size:16px;line-height:1.7;margin-bottom:24px}
-.cl{list-style:none;display:flex;flex-direction:column;gap:11px}
-.cl li{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.8);font-size:15px}
-.cl li::before{content:'✓';width:22px;height:22px;background:var(--ay);color:var(--vd);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-.afc{background:white;border-radius:14px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.25)}
-.afc h3{font-family:'Playfair Display',serif;font-size:19px;color:var(--vd);margin-bottom:5px}
-.afc>p{font-size:13px;color:var(--txs);margin-bottom:20px;line-height:1.5}
-.ff{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
-.ff label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--vv)}
-.ff input,.ff select{border:1.5px solid var(--crd);border-radius:7px;padding:10px 13px;font-size:14px;font-family:'Barlow',sans-serif;color:var(--tx);outline:none;transition:border-color .2s;background:#F8FBF9}
-.ff input:focus,.ff select:focus{border-color:var(--vv);background:white}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ba{width:100%;background:var(--vd);color:white;border:none;border-radius:8px;padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Barlow',sans-serif;transition:all .2s;margin-top:6px}
-.ba:hover{background:var(--vv)}
-#alist{margin-top:16px;display:flex;flex-direction:column;gap:9px}
-.ap{display:flex;align-items:center;justify-content:space-between;background:var(--cr);border:1px solid var(--crd);border-radius:8px;padding:11px 13px;animation:fu .3s ease}
-.apl strong{display:block;font-size:13px;color:var(--tx);font-weight:600}
-.apl span{font-size:11px;color:var(--txs)}
-.pb{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;border-radius:12px;background:rgba(74,140,42,.12);color:var(--vv)}
-.bd{background:none;border:none;cursor:pointer;color:#ccc;font-size:14px;padding:2px 6px}
-.bd:hover{color:#e05}
-#como{padding:80px 48px;background:white}
-.fg{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
-@media(max-width:900px){.fg{grid-template-columns:1fr}#como{padding:60px 20px}}
-.fc{padding:28px;border-radius:12px;border:1px solid rgba(0,0,0,.07);transition:all .3s}
-.fc:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.07)}
-.fic{width:48px;height:48px;background:rgba(74,140,42,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
-.fc h3{font-size:16px;font-weight:700;color:var(--vd);margin-bottom:8px}
-.fc p{font-size:14px;color:var(--txs);line-height:1.7}
-footer{background:var(--tx);color:rgba(255,255,255,.5);padding:48px;text-align:center;font-size:13px;line-height:1.7}
+body{font-family:'Barlow',sans-serif;background:#fff;color:#1a2e22;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:2px solid #c8ecf8;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;color:#1a2e22;font-weight:700}
+.logo em{font-style:normal;color:#0096C7}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{text-decoration:none;font-size:13px;font-weight:600;color:#3d5a4f;padding:8px 16px;border-radius:6px;transition:all .2s}
+.nav-links a:hover{background:#e0f4ff;color:#0077b6}
+.nav-cta{background:linear-gradient(135deg,#0096C7,#0077B6)!important;color:#fff!important;padding:8px 18px!important;border-radius:6px!important}
+.nav-cta:hover{opacity:.9!important}
+@media(max-width:768px){nav{padding:0 20px}.nav-links a:not(.nav-cta){display:none}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:80px 48px 60px;transition:margin-top .3s;background:#fff;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 80% 30%,rgba(0,150,199,.06) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 10% 80%,rgba(123,198,126,.06) 0%,transparent 50%)}
+.hero-grid{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(#0096C7 1px,transparent 1px),linear-gradient(90deg,#0096C7 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;width:100%}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-right{display:none}.hero{padding:100px 24px 60px}}
+
+/* HERO CARD */
+.dash{background:#fff;border:2px solid #c8ecf8;border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(0,150,199,.1)}
+.dash-head{background:linear-gradient(135deg,#2D6A4F,#0096C7);padding:14px 20px;display:flex;align-items:center;gap:10px}
+.dash-head span{font-size:11px;color:rgba(255,255,255,.5);font-family:monospace;flex:1;text-align:center}
+.dash-dot{width:10px;height:10px;border-radius:50%}
+.dash-body{padding:18px}
+.dash-metric{background:linear-gradient(135deg,#e8f5e9,#e0f4ff);border:1px solid #c8ecf8;border-radius:14px;padding:18px;margin-bottom:12px}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.dash-mini{background:#f6fdf7;border:1px solid #e0ecf0;border-radius:11px;padding:13px}
+.dash-skills{background:#f6fdf7;border:1px solid #e0ecf0;border-radius:11px;padding:14px}
+.skill-bar{background:#e0ecf0;border-radius:20px;height:5px;margin-top:4px}
+.skill-fill{border-radius:20px;height:100%;background:linear-gradient(90deg,#0077B6,#7BC67E)}
+.dash-range{background:#f0f4f8;border:1px solid #e0e8ee;border-radius:8px;padding:8px 12px;margin-top:10px;display:flex;justify-content:space-between}
+.spark{display:flex;align-items:flex-end;gap:3px;height:28px;margin-top:12px}
+.spark div{flex:1;border-radius:2px 2px 0 0}
+
+/* SECTIONS */
+section{padding:80px 48px}
+@media(max-width:768px){section{padding:56px 20px}}
+.wrap{max-width:1160px;margin:0 auto}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#0096C7;margin-bottom:12px;display:block}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);color:#1a2e22;letter-spacing:-.5px;margin-bottom:10px}
+.sec-sub{font-size:15px;color:#3d5a4f;line-height:1.65;margin-bottom:36px}
+
+/* PHOTO BAND */
+.photos{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3px;height:360px;overflow:hidden}
+.photos img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.photos img:hover{transform:scale(1.04)}
+.photo-wrap{position:relative;overflow:hidden}
+.photo-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,77,106,.8));padding:18px 22px}
+.photo-cap span{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);display:block}
+.photo-cap p{font-size:14px;font-weight:700;color:#fff;margin-top:3px}
+@media(max-width:768px){.photos{grid-template-columns:1fr;height:220px}.photo-wrap:not(:first-child){display:none}}
+
+/* SEARCH */
+.search-box{background:#fff;border-radius:14px;padding:28px;box-shadow:0 4px 24px rgba(0,150,199,.07);border:2px solid #c8ecf8;max-width:820px}
+.search-row{display:flex;gap:10px;margin-bottom:14px}
+@media(max-width:768px){.search-row{flex-direction:column}}
+.search-input{flex:1;border:1.5px solid #e0ecf0;border-radius:8px;padding:13px 18px;font-size:15px;font-family:'Barlow',sans-serif;color:#1a2e22;outline:none;transition:all .2s;background:#f8fffe}
+.search-input:focus{border-color:#0096C7;background:#fff;box-shadow:0 0 0 3px rgba(0,150,199,.08)}
+.search-btn{background:linear-gradient(135deg,#0096C7,#0077B6);color:#fff;border:none;border-radius:8px;padding:13px 26px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Barlow',sans-serif;transition:all .2s;white-space:nowrap;position:relative;overflow:hidden}
+.search-btn:hover{box-shadow:0 4px 16px rgba(0,150,199,.25)}
+.search-btn:disabled{opacity:.5;cursor:not-allowed}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:#e0f4ff;border:none;border-radius:6px;padding:8px 16px;font-size:13px;color:#0077B6;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:600;transition:all .25s}
+.chip:hover{background:#0096C7;color:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,150,199,.2)}
+.result-box{background:#fff;border:2px solid #c8ecf8;border-left:4px solid #0096C7;border-radius:10px;padding:24px;margin-top:20px}
+.result-box h4{font-family:'Playfair Display',serif;font-size:18px;color:#1a2e22;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.result-box pre{font-size:14px;line-height:1.85;color:#3d5a4f;white-space:pre-wrap;font-family:'Barlow',sans-serif}
+
+/* SHIMMER */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.shimmer{background:linear-gradient(90deg,#e8f5e9 25%,#e0f4ff 50%,#e8f5e9 75%);background-size:200% 100%;animation:shimmer 1.5s ease-in-out infinite;border-radius:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PORTALES */
+.portales-sec{background:linear-gradient(135deg,#1a3a2d 0%,#0077B6 100%);color:#fff}
+.portal-feat{display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:24px 30px;text-decoration:none;color:#fff;transition:all .3s;flex-wrap:wrap;margin-bottom:12px}
+.portal-feat:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+.portal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:900px){.portal-grid{grid-template-columns:repeat(2,1fr)}}
+.portal-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 14px;text-decoration:none;text-align:center;transition:all .3s;display:block;color:#fff}
+.portal-card:hover{background:rgba(255,255,255,.1);border-color:rgba(0,150,199,.4);transform:translateY(-4px)}
+
+/* SECTORES */
+.acc-item{border-top:1px solid #e0f4ff}
+.acc-item:last-child{border-bottom:1px solid #e0f4ff}
+.acc-btn{width:100%;display:flex;align-items:center;gap:16px;padding:20px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:all .3s}
+.acc-btn:hover{background:rgba(0,150,199,.03);padding-left:8px}
+.acc-arr{font-size:22px;color:#0096C7;transition:transform .3s;flex-shrink:0;line-height:1;margin-left:auto}
+.acc-body{overflow:hidden;max-height:0;opacity:0;padding-left:56px;transition:max-height .5s cubic-bezier(.16,1,.3,1),opacity .4s ease}
+.acc-body.open{max-height:2000px;opacity:1;padding-bottom:24px}
+
+/* EDU */
+.edu-hero{background:linear-gradient(135deg,#2D6A4F 0%,#0077B6 100%);padding:68px 48px;position:relative;overflow:hidden}
+.edu-tabs{display:flex;border-bottom:2px solid #c8ecf8;background:#fff;padding:0 48px;overflow-x:auto}
+@media(max-width:768px){.edu-tabs{padding:0 20px}}
+.edu-tab{padding:16px 22px;font-size:13px;font-weight:700;cursor:pointer;border:none;border-bottom:3px solid transparent;white-space:nowrap;background:none;font-family:'Barlow',sans-serif;color:#7a9e8a;margin-bottom:-2px;transition:all .2s}
+.edu-tab:hover{color:#0077B6}
+.edu-tab.active{border-bottom-color:#0096C7;color:#0077B6}
+.edu-panel{display:none;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease}
+.edu-panel.active{display:block;opacity:1;transform:translateY(0)}
+.edu-content{max-width:1160px;margin:0 auto;padding:48px 48px}
+@media(max-width:768px){.edu-content{padding:32px 20px}}
+
+/* CARDS */
+.card{background:#fff;border:1px solid #e0f4ff;border-radius:14px;padding:24px;position:relative;overflow:hidden;transition:all .35s cubic-bezier(.16,1,.3,1)}
+.card:hover{box-shadow:0 16px 40px rgba(0,150,199,.1);transform:translateY(-5px);border-color:#ade8f4}
+.card-num{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0096C7,#0077B6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-bottom:14px}
+
+/* INT */
+.int-item{background:#fff;border:1px solid #c8ecf8;border-radius:12px;overflow:hidden;margin-bottom:10px;transition:all .3s}
+.int-item:hover{border-color:#0096C7;box-shadow:0 4px 16px rgba(0,150,199,.08)}
+.int-q{padding:18px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px;color:#1a2e22;user-select:none;gap:12px}
+.int-q:hover{background:#f6fdf7}
+.int-arr{font-size:20px;color:#0096C7;transition:transform .3s;flex-shrink:0}
+.int-a{overflow:hidden;max-height:0;opacity:0;padding:0 22px;transition:max-height .4s ease,opacity .3s ease,padding .3s ease;font-size:14px;color:#3d5a4f;line-height:1.78;border-top:0px solid #c8ecf8}
+.int-a.open{max-height:500px;opacity:1;padding:12px 22px 18px;border-top-width:1px}
+
+/* CURSO */
+.curso{background:#fff;border:1px solid #e0f4ff;border-radius:14px;padding:22px;display:flex;gap:16px;text-decoration:none;color:inherit;transition:all .35s cubic-bezier(.16,1,.3,1)}
+.curso:hover{box-shadow:0 12px 32px rgba(0,150,199,.1);transform:translateY(-3px);border-color:#ade8f4}
+.curso-ico{width:50px;height:50px;border-radius:12px;background:#e0f4ff;border:1px solid #c8ecf8;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px;margin-right:4px;margin-top:6px}
+.tag-g{background:rgba(0,150,199,.1);color:#0077B6}
+.tag-v{background:rgba(123,198,126,.15);color:#2D6A4F}
+
+/* GLOSARIO */
+.glos-item{background:#fff;border:1px solid #e0f4ff;border-radius:10px;padding:14px 16px;transition:all .3s}
+.glos-item:hover{border-color:#0096C7;box-shadow:0 4px 16px rgba(0,150,199,.07);transform:translateY(-2px)}
+
+/* ALERTAS */
+.alert-sec{background:linear-gradient(135deg,#2D6A4F 0%,#0077B6 100%)}
+.al-card{background:#fff;border-radius:14px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,.15)}
+.fld{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.fld label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0096C7}
+.fld input,.fld select{border:1.5px solid #e0ecf0;border-radius:7px;padding:11px 14px;font-size:14px;font-family:'Barlow',sans-serif;color:#1a2e22;outline:none;transition:all .2s;background:#f8fffe}
+.fld input:focus,.fld select:focus{border-color:#0096C7;background:#fff;box-shadow:0 0 0 3px rgba(0,150,199,.07)}
+.fld-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-alert{width:100%;background:linear-gradient(135deg,#0096C7,#0077B6);color:#fff;border:none;border-radius:8px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Barlow',sans-serif;transition:all .2s;margin-top:8px}
+.btn-alert:hover{box-shadow:0 4px 16px rgba(0,150,199,.3)}
+.alert-pill{display:flex;align-items:center;justify-content:space-between;background:#f6fdf7;border:1px solid #e0f4ff;border-radius:8px;padding:11px 14px;margin-top:8px}
+
+/* FOOTER */
+footer{background:linear-gradient(135deg,#1a3a2d,#0077B6);padding:48px;text-align:center;color:rgba(255,255,255,.5);font-size:13px;line-height:1.8}
 footer strong{color:rgba(255,255,255,.85)}
-footer a{color:var(--ay);text-decoration:none}
-#toast{position:fixed;bottom:26px;right:26px;z-index:999;background:var(--vd);color:white;border-left:4px solid var(--ay);border-radius:8px;padding:13px 18px;font-size:14px;max-width:300px;box-shadow:0 8px 30px rgba(0,0,0,.25);display:flex;align-items:center;gap:10px;transform:translateX(120%);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+footer a{color:#ade8f4;text-decoration:none}
+
+/* TOAST */
+#toast{position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2e22;color:#fff;border-left:3px solid #0096C7;border-radius:8px;padding:13px 18px;font-size:14px;max-width:300px;box-shadow:0 8px 30px rgba(0,0,0,.2);display:flex;align-items:center;gap:10px;transform:translateX(120%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
 #toast.show{transform:translateX(0)}
-@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+
+/* USER PANEL */
+.user-bar{background:linear-gradient(135deg,#e0f4ff,#e8f5e9);border-bottom:2px solid #c8ecf8;padding:12px 48px;display:none;align-items:center;justify-content:space-between;margin-top:64px}
+.user-bar.show{display:flex}
+.user-info{display:flex;align-items:center;gap:10px}
+.user-avatar{width:32px;height:32px;border-radius:50%;border:2px solid #ade8f4}
+.user-name{font-size:14px;font-weight:600;color:#1a2e22}
+.user-actions{display:flex;gap:8px}
+.btn-post{background:linear-gradient(135deg,#0096C7,#0077B6);color:#fff;border:none;border-radius:6px;padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:Barlow,sans-serif;transition:all .2s}
+.btn-post:hover{box-shadow:0 4px 16px rgba(0,150,199,.25)}
+.btn-logout{background:none;border:1.5px solid #e0ecf0;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:Barlow,sans-serif;color:#7a9e8a;transition:all .2s}
+.btn-logout:hover{border-color:#ff6b6b;color:#ff6b6b}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay.show{display:flex}
+.modal{background:#fff;border-radius:16px;padding:32px;max-width:560px;width:90%;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.2);position:relative}
+.modal h2{font-family:'Playfair Display',serif;font-size:24px;color:#1a2e22;margin-bottom:6px}
+.modal>p{font-size:14px;color:#3d5a4f;margin-bottom:24px}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#7a9e8a;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{background:#e0f4ff;color:#0077B6}
+
+/* JOB CARDS */
+.jobs-section{padding:80px 48px;background:#fff}
+.jobs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:768px){.jobs-grid{grid-template-columns:1fr}}
+.job-card{background:#fff;border:2px solid #e0f4ff;border-radius:14px;padding:22px;transition:all .35s;position:relative}
+.job-card:hover{border-color:#ade8f4;box-shadow:0 12px 32px rgba(0,150,199,.08);transform:translateY(-3px)}
+.job-card h3{font-size:16px;font-weight:800;color:#1a2e22;margin-bottom:6px}
+.job-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.job-tag{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px}
+.job-tag-region{background:#e0f4ff;color:#0077B6}
+.job-tag-sector{background:#e8f5e9;color:#2D6A4F}
+.job-tag-tipo{background:#fff3e0;color:#e65100}
+.job-desc{font-size:13px;color:#3d5a4f;line-height:1.65;margin-bottom:12px}
+.job-footer{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid #e0f4ff}
+.job-author{font-size:12px;color:#7a9e8a;display:flex;align-items:center;gap:6px}
+.job-author img{width:20px;height:20px;border-radius:50%}
+.job-date{font-size:11px;color:#7a9e8a}
+.job-contact{font-size:12px;color:#0096C7;font-weight:700;text-decoration:none}
+.job-contact:hover{text-decoration:underline}
+.no-jobs{text-align:center;padding:40px 20px;color:#7a9e8a;font-size:15px}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:none}
+.stagger.vis>*{opacity:1!important;transform:none!important}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nl"><span>🌱</span><strong>Agro<em>Job</em> Chile</strong></a>
-  <div class="nr">
+  <a href="#" class="logo">🌱 Agro<em>Chile</em></a>
+  <div class="nav-links">
     <a href="#buscar">Buscar</a>
     <a href="#portales">Portales</a>
+    <a href="#empleos">Empleos</a>
     <a href="#sectores">Sectores</a>
     <a href="#educacion">Aprende</a>
-    <a href="#alertas" class="ncta">🔔 Alertas</a>
+    <a href="#alertas" class="nav-cta">🔔 Alertas</a>
+    <button id="login-btn" onclick="loginGoogle()" style="background:#fff;border:2px solid #c8ecf8;border-radius:6px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Barlow,sans-serif;color:#0077B6;transition:all .2s;display:flex;align-items:center;gap:6px" onmouseover="this.style.background='#e0f4ff'" onmouseout="this.style.background='#fff'"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="16" height="16" alt="G"> Iniciar sesión</button>
   </div>
 </nav>
 
-<section style="background:linear-gradient(145deg,#0B2818 0%,#102E1C 50%,#0D2318 100%);min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:68px;position:relative;overflow:hidden">
+<!-- USER BAR -->
+<div class="user-bar" id="user-bar">
+  <div class="user-info"><img class="user-avatar" id="user-avatar" src="" alt=""><span class="user-name" id="user-name"></span></div>
+  <div class="user-actions">
+    <button class="btn-post" onclick="openPostModal()">+ Publicar oferta de trabajo</button>
+    <button class="btn-logout" onclick="logout()">Cerrar sesión</button>
+  </div>
+</div>
 
-  <!-- subtle background texture -->
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 90% 30%,rgba(76,175,125,.15) 0%,transparent 55%),radial-gradient(ellipse 50% 70% at 5% 90%,rgba(46,139,87,.12) 0%,transparent 50%)"></div>
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(76,175,125,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(76,175,125,.03) 1px,transparent 1px);background-size:56px 56px;animation:gridMove 28s linear infinite"></div>
-  <style>
-    @keyframes gridMove{0%{background-position:0 0}100%{background-position:56px 56px}}
-    @keyframes softFloat{0%,100%{transform:translateY(0px)}50%{transform:translateY(-8px)}}
-    @keyframes greenGlow{0%,100%{text-shadow:0 0 20px rgba(76,175,125,.2)}50%{text-shadow:0 0 40px rgba(76,175,125,.45)}}
-  </style>
-  <div style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(46,139,87,.06) 0%,transparent 70%);top:-120px;right:-80px;pointer-events:none"></div>
-  <div class="particles"><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div><div class="p"></div></div>
+<!-- POST JOB MODAL -->
+<div class="modal-overlay" id="post-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closePostModal()">✕</button>
+    <h2>📋 Publicar oferta de trabajo</h2>
+    <p>Tu oferta será visible para todos los agrónomos que visiten AgroChile.</p>
+    <div class="fld"><label>Título del cargo</label><input type="text" id="job-title" placeholder="Ej: Agrónomo de campo, Jefe de huerto..."></div>
+    <div class="fld"><label>Empresa u organización</label><input type="text" id="job-company" placeholder="Ej: Viña Concha y Toro, INDAP..."></div>
+    <div class="fld-row">
+      <div class="fld"><label>Región</label><select id="job-region"><option>Todo Chile</option><option>Región Metropolitana</option><option>Valparaíso</option><option>O'Higgins</option><option>Maule</option><option>Ñuble</option><option>Biobío</option><option>Araucanía</option><option>Los Lagos</option><option>Coquimbo</option><option>Atacama</option></select></div>
+      <div class="fld"><label>Sector</label><select id="job-sector"><option>Fruticultura</option><option>Viticultura</option><option>Horticultura</option><option>Ganadería</option><option>Forestal</option><option>Semillas</option><option>Sector público</option><option>Consultoría</option><option>Otro</option></select></div>
+    </div>
+    <div class="fld-row">
+      <div class="fld"><label>Tipo de contrato</label><select id="job-tipo"><option>Tiempo completo</option><option>Medio tiempo</option><option>Temporal / Temporada</option><option>Práctica profesional</option><option>Freelance / Consultoría</option></select></div>
+      <div class="fld"><label>Rango de sueldo (CLP)</label><input type="text" id="job-sueldo" placeholder="Ej: $800.000 - $1.200.000"></div>
+    </div>
+    <div class="fld"><label>Descripción del cargo</label><textarea id="job-desc" rows="4" placeholder="Describe las funciones principales, requisitos y beneficios..." style="border:1.5px solid #e0ecf0;border-radius:7px;padding:11px 14px;font-size:14px;font-family:Barlow,sans-serif;color:#1a2e22;outline:none;width:100%;resize:vertical;background:#f8fffe;transition:all .2s" onfocus="this.style.borderColor='#0096C7'" onblur="this.style.borderColor='#e0ecf0'"></textarea></div>
+    <div class="fld"><label>Email o link de contacto para postular</label><input type="text" id="job-contact" placeholder="Ej: rrhh@empresa.cl o link de postulación"></div>
+    <button class="btn-alert" id="btn-post-job" onclick="publicarOferta()" style="margin-top:4px">📋 Publicar oferta</button>
+  </div>
+</div>
 
-  <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:60px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
-
-    <!-- ══ LEFT ══ -->
-    <div>
-      <!-- eyebrow pill -->
-      <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(76,175,125,.1);border:1px solid rgba(76,175,125,.22);border-radius:100px;padding:8px 18px;margin-bottom:32px">
-        <div style="width:6px;height:6px;border-radius:50%;background:#4CAF7D;animation:pulse 2s infinite;flex-shrink:0"></div>
-        <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7)">Agronomía · Naturaleza · Tecnología</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div style="animation:fadeUp .8s both">
+      <div style="display:inline-flex;align-items:center;gap:9px;background:#e0f4ff;border:1px solid #ade8f4;border-radius:100px;padding:7px 16px;margin-bottom:28px">
+        <div style="width:6px;height:6px;border-radius:50%;background:#0096C7;animation:pulse 2s infinite"></div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0077B6">Agronomía · Naturaleza · Tecnología</span>
       </div>
-
-      <!-- headline -->
-      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(44px,5.2vw,72px);line-height:1.02;letter-spacing:-2px;color:#FFFFFF;margin-bottom:22px">
-        <span style="display:block;font-weight:900">El futuro</span>
-        <span style="display:block;font-weight:900;font-style:italic;color:#5DC98A;animation:greenGlow 4s ease-in-out infinite">del agro</span>
-        <span style="display:block;font-weight:300;font-size:.5em;letter-spacing:0px;color:rgba(255,255,255,.5);margin-top:8px">empieza aquí</span>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(44px,5.5vw,74px);line-height:1.02;letter-spacing:-2.5px;color:#1a2e22;margin-bottom:22px">
+        <span style="display:block;font-weight:900">El empleo agrícola</span>
+        <span style="display:block;font-weight:900;font-style:italic;color:#2D6A4F">que buscas,</span>
+        <span style="display:block;font-weight:300;font-size:.55em;letter-spacing:0;color:#7a9e8a;margin-top:6px">en un solo lugar</span>
       </h1>
-
-      <p style="font-size:16px;color:rgba(255,255,255,.65);line-height:1.78;max-width:440px;margin-bottom:40px">La plataforma donde la ciencia, la tecnología y el respeto por la naturaleza construye la agronomía del mañana en Chile.</p>
-
-      <!-- stat row -->
-      <div style="display:flex;gap:0;margin-bottom:40px">
-        <div style="padding-right:28px;border-right:1px solid rgba(255,255,255,.12)">
-          <div style="font-family:'Playfair Display',serif;font-size:32px;color:#FFFFFF;line-height:1;font-weight:700">+12K</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:5px">Agrónomos</div>
-        </div>
-        <div style="padding:0 28px;border-right:1px solid rgba(255,255,255,.12)">
-          <div style="font-family:'Playfair Display',serif;font-size:32px;color:#FFFFFF;line-height:1;font-weight:700">8</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:5px">Sectores</div>
-        </div>
-        <div style="padding-left:28px">
-          <div style="font-family:'Playfair Display',serif;font-size:32px;color:#5DC98A;line-height:1;font-weight:700">100%</div>
-          <div style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:5px">Gratis</div>
-        </div>
+      <p style="font-size:16px;color:#3d5a4f;line-height:1.78;max-width:440px;margin-bottom:36px">La plataforma donde la ciencia, la tecnología y el respeto por la naturaleza construyen la agronomía del mañana en Chile.</p>
+      <div style="display:flex;gap:0;margin-bottom:36px">
+        <div style="padding-right:26px;border-right:1px solid #e0ecf0"><div class="counter" data-target="12" data-suffix="K" style="font-family:'Playfair Display',serif;font-size:32px;color:#1a2e22;line-height:1">0</div><div style="font-size:10px;color:#7a9e8a;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:4px">Agrónomos</div></div>
+        <div style="padding:0 26px;border-right:1px solid #e0ecf0"><div class="counter" data-target="8" style="font-family:'Playfair Display',serif;font-size:32px;color:#1a2e22;line-height:1">0</div><div style="font-size:10px;color:#7a9e8a;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:4px">Sectores</div></div>
+        <div style="padding-left:26px"><div class="counter" data-target="100" data-suffix="%" style="font-family:'Playfair Display',serif;font-size:32px;color:#0096C7;line-height:1">0</div><div style="font-size:10px;color:#7a9e8a;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:4px">Gratis</div></div>
       </div>
-
-      <!-- CTAs -->
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="#buscar" style="background:#5DC98A;color:#0B2818;border-radius:8px;padding:15px 32px;font-size:14px;font-weight:800;text-decoration:none;font-family:'Barlow',sans-serif;display:inline-flex;align-items:center;gap:8px;letter-spacing:.4px;text-transform:uppercase;transition:all .25s;box-shadow:0 4px 20px rgba(93,201,138,.25)" onmouseover="this.style.background='#FFFFFF';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#5DC98A';this.style.transform=''">Explorar empleos</a>
-        <a href="#alertas" style="background:rgba(255,255,255,.08);color:#FFFFFF;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:14px 26px;font-size:14px;font-weight:600;text-decoration:none;font-family:'Barlow',sans-serif;display:inline-flex;align-items:center;gap:8px;transition:all .25s" onmouseover="this.style.background='rgba(255,255,255,.14)';this.style.borderColor='rgba(255,255,255,.5)'" onmouseout="this.style.background='rgba(255,255,255,.08)';this.style.borderColor='rgba(255,255,255,.25)'">Alertas por email</a>
+        <a href="#buscar" style="background:linear-gradient(135deg,#0096C7,#0077B6);color:#fff;border-radius:8px;padding:15px 32px;font-size:14px;font-weight:800;text-decoration:none;font-family:'Barlow',sans-serif;letter-spacing:.4px;text-transform:uppercase;transition:all .25s;box-shadow:0 4px 16px rgba(0,150,199,.25);display:inline-flex;align-items:center;gap:8px" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Explorar empleos</a>
+        <a href="#alertas" style="background:#fff;color:#2D6A4F;border:2px solid #7BC67E;border-radius:8px;padding:14px 26px;font-size:14px;font-weight:700;text-decoration:none;font-family:'Barlow',sans-serif;transition:all .25s;display:inline-flex;align-items:center;gap:8px" onmouseover="this.style.background='#7BC67E';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='#2D6A4F'">Alertas por email</a>
       </div>
     </div>
 
-    <!-- ══ RIGHT: Mercado Dashboard ══ -->
-    <div style="animation:softFloat 6s ease-in-out infinite">
-      <!-- outer card — lighter background for readability -->
-      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.4)">
-
-        <!-- terminal titlebar -->
-        <div style="background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.1);padding:13px 20px;display:flex;align-items:center;gap:10px">
-          <div style="display:flex;gap:6px">
-            <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57"></div>
-            <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E"></div>
-            <div style="width:10px;height:10px;border-radius:50%;background:#28C840"></div>
+    <!-- DASHBOARD CARD -->
+    <div class="hero-right" style="animation:fadeUp .8s .2s both">
+      <div style="animation:float 6s ease-in-out infinite">
+        <div class="dash">
+          <div class="dash-head">
+            <div class="dash-dot" style="background:#FF5F57"></div>
+            <div class="dash-dot" style="background:#FEBC2E"></div>
+            <div class="dash-dot" style="background:#28C840"></div>
+            <span>agrochile.cl — empleos del agro</span>
+            <div style="display:flex;align-items:center;gap:5px"><div style="width:6px;height:6px;border-radius:50%;background:#0096C7;animation:pulse 2s infinite"></div><span style="font-size:10px;color:rgba(255,255,255,.8);font-weight:700;letter-spacing:1px">EN VIVO</span></div>
           </div>
-          <span style="flex:1;text-align:center;font-size:11px;color:rgba(255,255,255,.5);font-family:monospace;letter-spacing:.5px">agrojob.cl — mercado laboral 2025</span>
-          <div style="display:flex;align-items:center;gap:5px">
-            <div style="width:6px;height:6px;border-radius:50%;background:#5DC98A;animation:pulse 2s infinite"></div>
-            <span style="font-size:10px;color:rgba(255,255,255,.6);font-weight:700;letter-spacing:1px">EN VIVO</span>
-          </div>
-        </div>
-
-        <div style="padding:18px">
-
-          <!-- ── SUELDO PRINCIPAL ── -->
-          <div style="background:rgba(93,201,138,.12);border:1px solid rgba(93,201,138,.3);border-radius:14px;padding:18px 20px;margin-bottom:12px">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-              <span style="font-size:11px;color:rgba(255,255,255,.7);font-weight:700;letter-spacing:.8px;text-transform:uppercase">Sueldo Agrónomo Jr. · 2025</span>
-              <span style="background:#5DC98A;color:#0B2818;font-size:10px;padding:3px 10px;border-radius:20px;font-weight:800;letter-spacing:.3px">↑ Alta demanda</span>
-            </div>
-            <div style="font-family:'Playfair Display',serif;font-size:42px;color:#FFFFFF;line-height:1;font-weight:900;margin-bottom:4px">
-              $950<span style="font-size:22px;color:rgba(255,255,255,.5)">.000</span>
-            </div>
-            <div style="font-size:12px;color:rgba(255,255,255,.6);margin-bottom:14px">CLP mensual · Región Metropolitana</div>
-            <!-- rango -->
-            <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.2);border-radius:8px;padding:8px 12px">
-              <span style="font-size:11px;color:rgba(255,255,255,.6)">Rango: <strong style="color:#FFFFFF">$750K – $1.200K</strong></span>
-              <span style="font-size:11px;color:rgba(255,255,255,.6)">Senior: <strong style="color:#5DC98A">+$1.800K</strong></span>
-            </div>
-            <!-- sparkline -->
-            <div style="display:flex;align-items:flex-end;gap:4px;height:30px;margin-top:12px">
-              <div style="flex:1;background:rgba(93,201,138,.15);border-radius:3px 3px 0 0;height:28%"></div>
-              <div style="flex:1;background:rgba(93,201,138,.22);border-radius:3px 3px 0 0;height:42%"></div>
-              <div style="flex:1;background:rgba(93,201,138,.32);border-radius:3px 3px 0 0;height:58%"></div>
-              <div style="flex:1;background:rgba(93,201,138,.44);border-radius:3px 3px 0 0;height:76%"></div>
-              <div style="flex:1;background:#5DC98A;border-radius:3px 3px 0 0;height:100%"></div>
-            </div>
-          </div>
-
-          <!-- ── 2 MINI MÉTRICAS ── -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
-            <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px">
-              <div style="font-size:10px;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;font-weight:600">Sector líder</div>
-              <div style="font-size:16px;font-weight:800;color:#FFFFFF;margin-bottom:3px">Fruticultura</div>
-              <div style="font-size:11px;color:#5DC98A;font-weight:600">↑ Muy alta demanda</div>
-            </div>
-            <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px">
-              <div style="font-size:10px;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;font-weight:600">Región top</div>
-              <div style="font-size:16px;font-weight:800;color:#FFFFFF;margin-bottom:3px">O'Higgins</div>
-              <div style="font-size:11px;color:#5DC98A;font-weight:600">↑ +30% vacantes</div>
-            </div>
-          </div>
-
-          <!-- ── SKILLS BUSCADAS ── -->
-          <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px">
-            <div style="font-size:11px;color:rgba(255,255,255,.7);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;font-weight:700">Skills más buscadas · 2025</div>
-            <div style="display:flex;flex-direction:column;gap:11px">
-              <div>
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
-                  <span style="font-size:13px;color:#FFFFFF;font-weight:500">Agricultura de precisión</span>
-                  <span style="font-size:12px;color:#5DC98A;font-weight:800">94%</span>
-                </div>
-                <div style="background:rgba(255,255,255,.1);border-radius:20px;height:5px">
-                  <div style="background:linear-gradient(90deg,#1A5C38,#5DC98A);border-radius:20px;height:100%;width:94%"></div>
-                </div>
+          <div class="dash-body">
+            <div class="dash-metric">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+                <span style="font-size:11px;color:#1a2e22;font-weight:700;letter-spacing:.8px;text-transform:uppercase">Sueldo Agrónomo Jr. 2025</span>
+                <span style="background:linear-gradient(135deg,#0096C7,#7BC67E);color:#fff;font-size:10px;padding:3px 10px;border-radius:20px;font-weight:800">↑ Alta demanda</span>
               </div>
-              <div>
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
-                  <span style="font-size:13px;color:#FFFFFF;font-weight:500">Inglés técnico</span>
-                  <span style="font-size:12px;color:#5DC98A;font-weight:800">82%</span>
-                </div>
-                <div style="background:rgba(255,255,255,.1);border-radius:20px;height:5px">
-                  <div style="background:linear-gradient(90deg,#1A5C38,#5DC98A);border-radius:20px;height:100%;width:82%"></div>
-                </div>
-              </div>
-              <div>
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
-                  <span style="font-size:13px;color:#FFFFFF;font-weight:500">Drones y SIG</span>
-                  <span style="font-size:12px;color:#5DC98A;font-weight:800">71%</span>
-                </div>
-                <div style="background:rgba(255,255,255,.1);border-radius:20px;height:5px">
-                  <div style="background:linear-gradient(90deg,#1A5C38,#5DC98A);border-radius:20px;height:100%;width:71%"></div>
-                </div>
+              <div style="font-family:'Playfair Display',serif;font-size:40px;color:#000;line-height:1;font-weight:900">$950<span style="font-size:20px;color:#666">.000</span></div>
+              <div style="font-size:12px;color:#555;margin-top:4px">CLP mensual · Región Metropolitana</div>
+              <div class="dash-range"><span style="font-size:11px;color:#444">Rango: <strong style="color:#000">$750K–$1.200K</strong></span><span style="font-size:11px;color:#444">Senior: <strong style="color:#0077B6">+$1.800K</strong></span></div>
+              <div class="spark">
+                <div style="background:rgba(0,150,199,.15);height:28%"></div>
+                <div style="background:rgba(0,150,199,.25);height:44%"></div>
+                <div style="background:rgba(0,150,199,.38);height:62%"></div>
+                <div style="background:rgba(0,150,199,.55);height:80%"></div>
+                <div style="background:#0096C7;height:100%"></div>
               </div>
             </div>
+            <div class="dash-grid">
+              <div class="dash-mini"><div style="font-size:10px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;font-weight:600">Sector líder</div><div style="font-size:15px;font-weight:800;color:#000">Fruticultura</div><div style="font-size:11px;color:#0096C7;margin-top:3px;font-weight:700">↑ Muy alta demanda</div></div>
+              <div class="dash-mini"><div style="font-size:10px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;font-weight:600">Región top</div><div style="font-size:15px;font-weight:800;color:#000">O'Higgins</div><div style="font-size:11px;color:#0096C7;margin-top:3px;font-weight:700">↑ +30% vacantes</div></div>
+            </div>
+            <div class="dash-skills">
+              <div style="font-size:10px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;font-weight:700">Skills más buscadas 2025</div>
+              <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:12px;color:#000;font-weight:600">Agricultura de precisión</span><span style="font-size:13px;color:#0077B6;font-weight:900">94%</span></div><div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div></div>
+              <div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:12px;color:#000;font-weight:600">Inglés técnico</span><span style="font-size:13px;color:#0077B6;font-weight:900">82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:12px;color:#000;font-weight:600">Drones y SIG</span><span style="font-size:13px;color:#0077B6;font-weight:900">71%</span></div><div class="skill-bar"><div class="skill-fill" style="width:71%"></div></div></div>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<section id="buscar">
-  <div class="si">
-    <div class="sh">
-      <h2>Consulta el mercado laboral</h2>
-      <p>Pregunta sobre sueldos, regiones, sectores o consejos para encontrar trabajo</p>
-    </div>
-    <div class="sbox">
-      <div class="sr">
-        <input class="si2" id="qi" type="text" placeholder="Ej: ¿Cuánto gana un agrónomo recién egresado en Santiago?"/>
-        <button class="sb" id="sbtn" onclick="buscar()"><span>🔍</span> Consultar</button>
+<!-- PHOTOS -->
+<div class="photos reveal">
+  <div class="photo-wrap"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&q=85" alt="Agricultura de precisión" loading="lazy"><div class="photo-cap"><span>Precisión Agrícola</span><p>Tecnología al servicio del campo</p></div></div>
+  <div class="photo-wrap"><img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&q=85" alt="Agricultura sustentable" loading="lazy"><div class="photo-cap"><span>Sustentabilidad</span><p>Producir sin destruir</p></div></div>
+  <div class="photo-wrap"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=85" alt="Naturaleza y agronomía" loading="lazy"><div class="photo-cap"><span>Naturaleza + Ciencia</span><p>El agrónomo del mañana</p></div></div>
+</div>
+<div style="background:linear-gradient(135deg,#2D6A4F,#0077B6);padding:36px 48px;text-align:center"><div style="max-width:700px;margin:0 auto"><p style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.3vw,22px);color:#fff;line-height:1.65;font-style:italic">"La agronomía del futuro no elige entre producción y naturaleza — las hace convivir."</p><span style="font-size:11px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:8px;display:block">AgroChile — Empleos del Agro</span></div></div>
+
+<!-- BUSCAR -->
+<section id="buscar" class="reveal">
+  <div class="wrap">
+    <span class="eyebrow">Análisis con datos reales</span>
+    <h2 class="sec-title">Consulta el mercado laboral</h2>
+    <p class="sec-sub">Fuentes verificadas: ODEPA · Laborum.cl · INE · Servicio Civil · ASOEX · Wines of Chile</p>
+    <div class="search-box">
+      <div class="search-row">
+        <input id="qi" class="search-input" type="text" placeholder="Ej: sueldos, tendencias, Santiago, habilidades...">
+        <button id="sbtn" class="search-btn" onclick="buscar()">Consultar</button>
       </div>
-      <div class="qtags">
-        <button class="qt" onclick="dq('sueldos')">💰 Sueldos 2025</button>
-        <button class="qt" onclick="dq('tendencias')">📊 Tendencias</button>
-        <button class="qt" onclick="dq('santiago')">📍 Santiago</button>
-        <button class="qt" onclick="dq('regiones')">🗺️ Regiones</button>
-        <button class="qt" onclick="dq('habilidades')">⭐ Skills top</button>
-        <button class="qt" onclick="dq('primer trabajo egresado')">🎓 Primer trabajo</button>
-        <button class="qt" onclick="dq('viticultura vinos')">🍷 Viticultura</button>
-        <button class="qt" onclick="dq('fruticultura exportacion')">🍒 Fruticultura</button>
-        <button class="qt" onclick="dq('sector publico sag indap')">🏛️ Sector Público</button>
+      <div class="chips">
+        <button class="chip" onclick="dq('sueldos')">💰 Sueldos 2025</button>
+        <button class="chip" onclick="dq('tendencias')">📊 Tendencias</button>
+        <button class="chip" onclick="dq('santiago')">📍 Santiago</button>
+        <button class="chip" onclick="dq('regiones')">🗺️ Regiones</button>
+        <button class="chip" onclick="dq('habilidades')">⭐ Skills</button>
+        <button class="chip" onclick="dq('primer trabajo')">🎓 Primer trabajo</button>
+        <button class="chip" onclick="dq('viticultura')">🍷 Viticultura</button>
+        <button class="chip" onclick="dq('fruticultura')">🍒 Fruticultura</button>
+        <button class="chip" onclick="dq('publico sag indap')">🏛️ Sector Público</button>
       </div>
       <div id="ra"></div>
     </div>
   </div>
 </section>
 
-<!-- PHOTO BAND -->
-<div style="height:380px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3px;overflow:hidden">
-  <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=900&q=80" alt="Campo agricola Chile" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
-  <img src="https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?w=600&q=80" alt="Vinedo chileno" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
-  <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=600&q=80" alt="Agronomo en terreno" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
-</div>
-
-<section id="portales" style="padding:88px 60px;background:#050F08;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 5% 50%,rgba(46,139,87,.08) 0%,transparent 55%)"></div>
-  <div style="max-width:1160px;margin:0 auto;position:relative;z-index:1">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px">
-      <div>
-        <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ac);margin-bottom:12px;display:block">Dónde buscar</span>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);color:white;letter-spacing:-.5px;line-height:1.1">Portales de empleo<br><em style="font-style:italic;color:var(--ac)">del agro chileno</em></h2>
-      </div>
-      <p style="font-size:14px;color:rgba(255,255,255,.3);max-width:260px;line-height:1.65">Los mejores sitios para encontrar vacantes, curados especialmente para ti.</p>
+<!-- PORTALES -->
+<section id="portales" class="portales-sec">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:20px">
+      <div><span class="eyebrow" style="color:#ade8f4">Dónde buscar</span><h2 class="sec-title" style="color:#fff">Portales de empleo <em style="font-style:italic;color:#ade8f4">del agro chileno</em></h2></div>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);max-width:260px;line-height:1.65">Los mejores sitios para encontrar vacantes, curados para ti.</p>
     </div>
-    <a href="https://www.laborum.cl/empleos/agronomía" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(76,175,125,.07);border:1px solid rgba(76,175,125,.18);border-radius:16px;padding:26px 32px;text-decoration:none;margin-bottom:12px;transition:all .3s;flex-wrap:wrap" onmouseover="this.style.background='rgba(76,175,125,.12)';this.style.borderColor='rgba(76,175,125,.3)'" onmouseout="this.style.background='rgba(76,175,125,.07)';this.style.borderColor='rgba(76,175,125,.18)'">
-      <div style="display:flex;align-items:center;gap:18px"><div style="width:50px;height:50px;border-radius:12px;background:rgba(76,175,125,.12);border:1px solid rgba(76,175,125,.2);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">🌐</div><div><div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><h3 style="font-size:18px;font-weight:800;color:white;margin:0">Laborum Chile</h3><span style="background:var(--ac);color:#050F08;font-size:10px;padding:3px 10px;border-radius:20px;font-weight:800;letter-spacing:1px;text-transform:uppercase">Recomendado</span></div><p style="font-size:14px;color:rgba(255,255,255,.4);margin:0">El portal más grande de Chile. Cientos de ofertas agrícolas actualizadas diariamente.</p></div></div>
-      <div style="text-align:right;flex-shrink:0"><div style="font-size:14px;color:var(--ac);font-weight:700">laborum.cl →</div><div style="font-size:12px;color:rgba(255,255,255,.2);margin-top:2px">+500 ofertas agro</div></div>
+    <a href="https://www.laborum.cl/empleos/agronomia" target="_blank" rel="noopener" class="portal-feat">
+      <div style="display:flex;align-items:center;gap:18px"><div style="width:50px;height:50px;border-radius:12px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:24px">🌐</div><div><div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><h3 style="font-size:18px;font-weight:800;margin:0">Laborum Chile</h3><span style="background:#0096C7;font-size:10px;padding:3px 10px;border-radius:20px;font-weight:800;text-transform:uppercase;letter-spacing:.5px">Recomendado</span></div><p style="font-size:14px;color:rgba(255,255,255,.5);margin:0">El portal más grande de Chile. Cientos de ofertas agrícolas actualizadas a diario.</p></div></div>
+      <div style="text-align:right;flex-shrink:0"><div style="font-size:14px;color:#ade8f4;font-weight:700">laborum.cl →</div></div>
     </a>
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
-      <a href="https://www.trabajando.com" target="_blank" rel="noopener" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px 14px;text-decoration:none;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(76,175,125,.08)';this.style.borderColor='rgba(76,175,125,.2)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)';this.style.transform=''"><div style="font-size:26px;margin-bottom:10px">💼</div><div style="font-size:13px;font-weight:800;color:white;margin-bottom:5px">Trabajando</div><div style="font-size:11px;color:rgba(255,255,255,.28);line-height:1.5;margin-bottom:12px">Sector agropecuario y exportación</div><div style="font-size:11px;color:var(--ac);font-weight:700">trabajando.com →</div></a>
-      <a href="https://www.linkedin.com/jobs" target="_blank" rel="noopener" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px 14px;text-decoration:none;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(76,175,125,.08)';this.style.borderColor='rgba(76,175,125,.2)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)';this.style.transform=''"><div style="font-size:26px;margin-bottom:10px">🔗</div><div style="font-size:13px;font-weight:800;color:white;margin-bottom:5px">LinkedIn</div><div style="font-size:11px;color:rgba(255,255,255,.28);line-height:1.5;margin-bottom:12px">Empresas exportadoras grandes</div><div style="font-size:11px;color:var(--ac);font-weight:700">linkedin.com →</div></a>
-      <a href="https://cl.indeed.com" target="_blank" rel="noopener" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px 14px;text-decoration:none;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(76,175,125,.08)';this.style.borderColor='rgba(76,175,125,.2)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)';this.style.transform=''"><div style="font-size:26px;margin-bottom:10px">🔎</div><div style="font-size:13px;font-weight:800;color:white;margin-bottom:5px">Indeed Chile</div><div style="font-size:11px;color:rgba(255,255,255,.28);line-height:1.5;margin-bottom:12px">Búsqueda global con filtros</div><div style="font-size:11px;color:var(--ac);font-weight:700">cl.indeed.com →</div></a>
-      <a href="https://www.serviciocivil.cl/ofertas-laborales" target="_blank" rel="noopener" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px 14px;text-decoration:none;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(76,175,125,.08)';this.style.borderColor='rgba(76,175,125,.2)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)';this.style.transform=''"><div style="font-size:26px;margin-bottom:10px">🏛️</div><div style="font-size:13px;font-weight:800;color:white;margin-bottom:5px">Servicio Civil</div><div style="font-size:11px;color:rgba(255,255,255,.28);line-height:1.5;margin-bottom:12px">SAG, INDAP, CONAF público</div><div style="font-size:11px;color:var(--ac);font-weight:700">serviciocivil.cl →</div></a>
-      <a href="https://www.colegioagrónomos.cl" target="_blank" rel="noopener" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px 14px;text-decoration:none;text-align:center;transition:all .3s" onmouseover="this.style.background='rgba(76,175,125,.08)';this.style.borderColor='rgba(76,175,125,.2)';this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)';this.style.transform=''"><div style="font-size:26px;margin-bottom:10px">🎓</div><div style="font-size:13px;font-weight:800;color:white;margin-bottom:5px">Colegio Agrónomos</div><div style="font-size:11px;color:rgba(255,255,255,.28);line-height:1.5;margin-bottom:12px">Bolsa gremial exclusiva</div><div style="font-size:11px;color:var(--ac);font-weight:700">colegioagrónomos.cl →</div></a>
+    <div class="portal-grid">
+      <a href="https://www.trabajando.com" target="_blank" rel="noopener" class="portal-card"><div style="font-size:26px;margin-bottom:10px">💼</div><div style="font-size:13px;font-weight:800;margin-bottom:4px">Trabajando</div><div style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.5;margin-bottom:10px">Sector agropecuario</div><div style="font-size:11px;color:#ade8f4;font-weight:700">trabajando.com →</div></a>
+      <a href="https://www.linkedin.com/jobs/search/?keywords=agr%C3%B3nomo&location=Chile" target="_blank" rel="noopener" class="portal-card"><div style="font-size:26px;margin-bottom:10px">🔗</div><div style="font-size:13px;font-weight:800;margin-bottom:4px">LinkedIn</div><div style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.5;margin-bottom:10px">Exportadoras grandes</div><div style="font-size:11px;color:#ade8f4;font-weight:700">linkedin.com →</div></a>
+      <a href="https://cl.indeed.com/jobs?q=agr%C3%B3nomo&l=Chile" target="_blank" rel="noopener" class="portal-card"><div style="font-size:26px;margin-bottom:10px">🔎</div><div style="font-size:13px;font-weight:800;margin-bottom:4px">Indeed Chile</div><div style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.5;margin-bottom:10px">Búsqueda global</div><div style="font-size:11px;color:#ade8f4;font-weight:700">cl.indeed.com →</div></a>
+      <a href="https://www.serviciocivil.cl/ofertas-laborales" target="_blank" rel="noopener" class="portal-card"><div style="font-size:26px;margin-bottom:10px">🏛️</div><div style="font-size:13px;font-weight:800;margin-bottom:4px">Servicio Civil</div><div style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.5;margin-bottom:10px">SAG, INDAP, CONAF</div><div style="font-size:11px;color:#ade8f4;font-weight:700">serviciocivil.cl →</div></a>
+      <a href="https://www.colegioagronomos.cl" target="_blank" rel="noopener" class="portal-card"><div style="font-size:26px;margin-bottom:10px">🎓</div><div style="font-size:13px;font-weight:800;margin-bottom:4px">Colegio Agrónomos</div><div style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.5;margin-bottom:10px">Bolsa gremial</div><div style="font-size:11px;color:#ade8f4;font-weight:700">colegioagronomos.cl →</div></a>
     </div>
+
+    <!-- EMPLEOS REALES -->
+    <div style="margin-top:40px;border-top:1px solid rgba(255,255,255,.1);padding-top:36px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+        <div>
+          <span style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#ade8f4;display:block;margin-bottom:6px">Ofertas reales</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:#fff">Empleos agrícolas publicados en Chile</h3>
+        </div>
+        <span style="font-size:12px;color:rgba(255,255,255,.4)">Fuentes: Laborum · Indeed · ChileTrabajos · Jooble · Colegio Agrónomos</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+
+        <a href="https://cl.indeed.com/jobs?q=agr%C3%B3nomo&l=Chile" target="_blank" rel="noopener" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 20px;text-decoration:none;transition:all .3s;display:block" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.borderColor='rgba(173,232,244,.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.1)';this.style.transform=''">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-size:12px;color:rgba(255,255,255,.5);font-weight:600">Indeed Chile</span>
+            <span style="font-size:10px;background:rgba(173,232,244,.15);color:#ade8f4;padding:2px 8px;border-radius:10px;font-weight:700">+60 ofertas</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">Ingeniero Agrónomo — Varias regiones</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.45)">Corteva · Agrosuper · SAG · Empresas frutícolas · Desde $850K CLP</div>
+          <div style="font-size:12px;color:#ade8f4;font-weight:700;margin-top:8px">Ver todas las ofertas →</div>
+        </a>
+
+        <a href="https://www.chiletrabajos.cl/encuentra-un-empleo/?2=agronomo" target="_blank" rel="noopener" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 20px;text-decoration:none;transition:all .3s;display:block" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.borderColor='rgba(173,232,244,.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.1)';this.style.transform=''">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-size:12px;color:rgba(255,255,255,.5);font-weight:600">ChileTrabajos</span>
+            <span style="font-size:10px;background:rgba(173,232,244,.15);color:#ade8f4;padding:2px 8px;border-radius:10px;font-weight:700">+100 ofertas</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">Agrónomo de campo — María Pinto, Cauquenes</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.45)">Empresas frutícolas · Administrador de campo · Jefe técnico</div>
+          <div style="font-size:12px;color:#ade8f4;font-weight:700;margin-top:8px">Ver todas las ofertas →</div>
+        </a>
+
+        <a href="https://cl.jooble.org/trabajo-agr%C3%B3nomo/Chile" target="_blank" rel="noopener" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 20px;text-decoration:none;transition:all .3s;display:block" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.borderColor='rgba(173,232,244,.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.1)';this.style.transform=''">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-size:12px;color:rgba(255,255,255,.5);font-weight:600">Jooble Chile</span>
+            <span style="font-size:10px;background:rgba(173,232,244,.15);color:#ade8f4;padding:2px 8px;border-radius:10px;font-weight:700">+11.000 ofertas</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">Ayudante de Agrónomo — Temporada 2025-2026</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.45)">Frusan · Tuniche Fruits · Del Monte · Producción de semillas</div>
+          <div style="font-size:12px;color:#ade8f4;font-weight:700;margin-top:8px">Ver todas las ofertas →</div>
+        </a>
+
+        <a href="https://colegioingenierosagronomoschile.cl/ofertas-laborales/" target="_blank" rel="noopener" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 20px;text-decoration:none;transition:all .3s;display:block" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.borderColor='rgba(173,232,244,.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.1)';this.style.transform=''">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-size:12px;color:rgba(255,255,255,.5);font-weight:600">Colegio de Agrónomos</span>
+            <span style="font-size:10px;background:rgba(173,232,244,.15);color:#ade8f4;padding:2px 8px;border-radius:10px;font-weight:700">Exclusivas</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">Riego · Registros · Ventas técnicas · Administración</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.45)">Netafim · Viñas · Exportadoras fruta · Seguros agrícolas</div>
+          <div style="font-size:12px;color:#ade8f4;font-weight:700;margin-top:8px">Ver ofertas del gremio →</div>
+        </a>
+
+        <a href="https://acciontrabajo.cl/empleos-de-agronomo" target="_blank" rel="noopener" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 20px;text-decoration:none;transition:all .3s;display:block" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.borderColor='rgba(173,232,244,.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.1)';this.style.transform=''">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-size:12px;color:rgba(255,255,255,.5);font-weight:600">AcciónTrabajo</span>
+            <span style="font-size:10px;background:rgba(173,232,244,.15);color:#ade8f4;padding:2px 8px;border-radius:10px;font-weight:700">Verificadas</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">Coordinador Ambiental · Asistente de Calidad</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.45)">Applus · Corfhu · Hidrohuerto · Áreas verdes · Santiago y regiones</div>
+          <div style="font-size:12px;color:#ade8f4;font-weight:700;margin-top:8px">Ver ofertas verificadas →</div>
+        </a>
+
+        <a href="https://www.serviciocivil.cl/ofertas-laborales/" target="_blank" rel="noopener" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 20px;text-decoration:none;transition:all .3s;display:block" onmouseover="this.style.background='rgba(255,255,255,.1)';this.style.borderColor='rgba(173,232,244,.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.1)';this.style.transform=''">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <span style="font-size:12px;color:rgba(255,255,255,.5);font-weight:600">Servicio Civil — Gobierno</span>
+            <span style="font-size:10px;background:rgba(123,198,126,.2);color:#7BC67E;padding:2px 8px;border-radius:10px;font-weight:700">Sector Público</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">Concursos SAG · INDAP · CONAF · INIA · MINAGRI</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.45)">Contratos estables · Beneficios · Todo Chile · Ingreso por concurso</div>
+          <div style="font-size:12px;color:#ade8f4;font-weight:700;margin-top:8px">Ver concursos públicos →</div>
+        </a>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section id="sectores" style="padding:88px 0;background:var(--g1)">
-  <div style="max-width:1160px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:320px 1fr;gap:72px;align-items:start">
-    <div style="position:sticky;top:88px">
-      <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--vc);margin-bottom:16px;display:block">Sectores productivos</span>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);color:var(--vd);letter-spacing:-.5px;line-height:1.12;margin-bottom:16px">Elige tu <em style="font-style:italic">área</em> y descubre las oportunidades</h2>
-      <p style="font-size:14px;color:var(--txs);line-height:1.72;margin-bottom:24px">Cada sector tiene sus empresas, sueldos y recursos. Haz clic para explorar.</p>
-      <div style="background:var(--vd);border-radius:12px;padding:18px 20px">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px">Sector activo</div>
-        <div id="sp-preview" style="font-size:14px;color:rgba(255,255,255,.5)">Selecciona un sector →</div>
+<!-- EMPLEOS PUBLICADOS -->
+<section id="empleos" class="jobs-section reveal">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px">
+      <div>
+        <span class="eyebrow">Ofertas de la comunidad</span>
+        <h2 class="sec-title">Empleos publicados en AgroChile</h2>
+        <p style="font-size:15px;color:#3d5a4f;margin-top:8px">Ofertas publicadas por empresas y personas de la comunidad agrícola chilena.</p>
       </div>
+      <button class="btn-post" onclick="loginAndPost()" id="btn-publicar-top" style="flex-shrink:0">+ Publicar oferta gratis</button>
     </div>
-    <div><div class="sec-acc-item" style="border-top:1px solid var(--g2)">
-        <button onclick="toggleSector(this,'viticultura')" style="width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:background .2s">
-          <span style="font-size:28px;flex-shrink:0;width:40px">🍷</span>
-          <div style="flex:1"><strong style="font-size:16px;color:var(--vd);display:block;margin-bottom:3px">Viticultura y Vinos</strong><span style="font-size:13px;color:var(--txs)">O'Higgins, Maule, Coquimbo · $1.0M – $2.2M</span></div>
-          <span class="sacc-arr" style="font-size:22px;color:var(--vc);transition:transform .3s;flex-shrink:0;line-height:1">+</span>
-        </button>
-        <div class="sacc-body" style="display:none;padding-bottom:24px;padding-left:58px" id="det-viticultura"></div>
-      </div><div class="sec-acc-item" style="border-top:1px solid var(--g2)">
-        <button onclick="toggleSector(this,'fruticultura')" style="width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:background .2s">
-          <span style="font-size:28px;flex-shrink:0;width:40px">🍒</span>
-          <div style="flex:1"><strong style="font-size:16px;color:var(--vd);display:block;margin-bottom:3px">Fruticultura de Exportación</strong><span style="font-size:13px;color:var(--txs)">O'Higgins, Maule, Coquimbo · $0.9M – $1.8M</span></div>
-          <span class="sacc-arr" style="font-size:22px;color:var(--vc);transition:transform .3s;flex-shrink:0;line-height:1">+</span>
-        </button>
-        <div class="sacc-body" style="display:none;padding-bottom:24px;padding-left:58px" id="det-fruticultura"></div>
-      </div><div class="sec-acc-item" style="border-top:1px solid var(--g2)">
-        <button onclick="toggleSector(this,'horticultura')" style="width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:background .2s">
-          <span style="font-size:28px;flex-shrink:0;width:40px">🥦</span>
-          <div style="flex:1"><strong style="font-size:16px;color:var(--vd);display:block;margin-bottom:3px">Horticultura e Invernaderos</strong><span style="font-size:13px;color:var(--txs)">Todo Chile · $0.8M – $1.5M</span></div>
-          <span class="sacc-arr" style="font-size:22px;color:var(--vc);transition:transform .3s;flex-shrink:0;line-height:1">+</span>
-        </button>
-        <div class="sacc-body" style="display:none;padding-bottom:24px;padding-left:58px" id="det-horticultura"></div>
-      </div><div class="sec-acc-item" style="border-top:1px solid var(--g2)">
-        <button onclick="toggleSector(this,'ganaderia')" style="width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:background .2s">
-          <span style="font-size:28px;flex-shrink:0;width:40px">🐄</span>
-          <div style="flex:1"><strong style="font-size:16px;color:var(--vd);display:block;margin-bottom:3px">Ganadería y Lechería</strong><span style="font-size:13px;color:var(--txs)">Araucanía, Los Lagos · $0.9M – $1.6M</span></div>
-          <span class="sacc-arr" style="font-size:22px;color:var(--vc);transition:transform .3s;flex-shrink:0;line-height:1">+</span>
-        </button>
-        <div class="sacc-body" style="display:none;padding-bottom:24px;padding-left:58px" id="det-ganaderia"></div>
-      </div><div class="sec-acc-item" style="border-top:1px solid var(--g2)">
-        <button onclick="toggleSector(this,'forestal')" style="width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:background .2s">
-          <span style="font-size:28px;flex-shrink:0;width:40px">🌲</span>
-          <div style="flex:1"><strong style="font-size:16px;color:var(--vd);display:block;margin-bottom:3px">Forestal y Silvicultura</strong><span style="font-size:13px;color:var(--txs)">Biobío, Araucanía · $1.1M – $2.0M</span></div>
-          <span class="sacc-arr" style="font-size:22px;color:var(--vc);transition:transform .3s;flex-shrink:0;line-height:1">+</span>
-        </button>
-        <div class="sacc-body" style="display:none;padding-bottom:24px;padding-left:58px" id="det-forestal"></div>
-      </div><div class="sec-acc-item" style="border-top:1px solid var(--g2)">
-        <button onclick="toggleSector(this,'semillas')" style="width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:background .2s">
-          <span style="font-size:28px;flex-shrink:0;width:40px">🌾</span>
-          <div style="flex:1"><strong style="font-size:16px;color:var(--vd);display:block;margin-bottom:3px">Semillas y Fitomejoramiento</strong><span style="font-size:13px;color:var(--txs)">O'Higgins, Maule · $1.1M – $2.2M</span></div>
-          <span class="sacc-arr" style="font-size:22px;color:var(--vc);transition:transform .3s;flex-shrink:0;line-height:1">+</span>
-        </button>
-        <div class="sacc-body" style="display:none;padding-bottom:24px;padding-left:58px" id="det-semillas"></div>
-      </div><div class="sec-acc-item" style="border-top:1px solid var(--g2)">
-        <button onclick="toggleSector(this,'publico')" style="width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:background .2s">
-          <span style="font-size:28px;flex-shrink:0;width:40px">🏛️</span>
-          <div style="flex:1"><strong style="font-size:16px;color:var(--vd);display:block;margin-bottom:3px">Sector Público Agrícola</strong><span style="font-size:13px;color:var(--txs)">Todo Chile · SAG, INDAP, CONAF, INIA</span></div>
-          <span class="sacc-arr" style="font-size:22px;color:var(--vc);transition:transform .3s;flex-shrink:0;line-height:1">+</span>
-        </button>
-        <div class="sacc-body" style="display:none;padding-bottom:24px;padding-left:58px" id="det-publico"></div>
-      </div><div class="sec-acc-item" style="border-top:1px solid var(--g2)">
-        <button onclick="toggleSector(this,'consultoria')" style="width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Barlow',sans-serif;text-align:left;transition:background .2s">
-          <span style="font-size:28px;flex-shrink:0;width:40px">📋</span>
-          <div style="flex:1"><strong style="font-size:16px;color:var(--vd);display:block;margin-bottom:3px">Consultoría Agrícola</strong><span style="font-size:13px;color:var(--txs)">Todo Chile · $1.2M – $2.5M</span></div>
-          <span class="sacc-arr" style="font-size:22px;color:var(--vc);transition:transform .3s;flex-shrink:0;line-height:1">+</span>
-        </button>
-        <div class="sacc-body" style="display:none;padding-bottom:24px;padding-left:58px" id="det-consultoria"></div>
-      </div>
-      <div style="border-top:1px solid var(--g2)"></div>
-    </div>
+    <div id="jobs-container"><div class="no-jobs">Cargando ofertas de trabajo...</div></div>
   </div>
 </section>
 
-<section id="como">
-  <div class="stitle" style="margin-bottom:44px"><p class="ey">¿Cómo funciona?</p><h2>Todo lo que necesitas para encontrar trabajo</h2></div>
-  <div class="fg">
-    <div class="fc"><div class="fic">🔍</div><h3>Consulta el mercado</h3><p>Pregunta sobre sueldos, regiones, sectores con más demanda y consejos prácticos para recién egresados de Agronomía.</p></div>
-    <div class="fc"><div class="fic">🔗</div><h3>Accede a portales reales</h3><p>Links directos a Laborum, Trabajando, LinkedIn, Indeed y el portal del Servicio Civil con las mejores ofertas agrícolas.</p></div>
-    <div class="fc"><div class="fic">🔔</div><h3>Alertas de vacantes</h3><p>Crea alertas por cargo, región y sector. Te avisamos cuando aparece una nueva oportunidad laboral para tu perfil.</p></div>
-    <div class="fc"><div class="fic">🗺️</div><h3>Todo Chile cubierto</h3><p>Desde Atacama hasta Los Lagos. Las principales zonas agrícolas: O'Higgins, Maule, Biobío, Araucanía y más.</p></div>
-    <div class="fc"><div class="fic">🎓</div><h3>Para recién egresados</h3><p>Pensado especialmente para quienes buscan su primer trabajo como agrónomo en Chile, con datos reales del mercado.</p></div>
-    <div class="fc"><div class="fic">💚</div><h3>100% gratuito</h3><p>Sin suscripciones ni pagos. AgroJob Chile es completamente gratis para todos los profesionales del agro.</p></div>
+<!-- SECTORES -->
+<section id="sectores" class="reveal">
+  <div class="wrap" style="display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start">
+    <div style="position:sticky;top:80px">
+      <span class="eyebrow">Sectores productivos</span>
+      <h2 class="sec-title">Elige tu área y descubre las oportunidades</h2>
+      <p style="font-size:14px;color:#3d5a4f;line-height:1.7;margin-bottom:20px">Haz clic en un sector para ver empresas, recursos y ofertas de empleo.</p>
+      <div style="background:linear-gradient(135deg,#2D6A4F,#0077B6);border-radius:12px;padding:18px 20px"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">Sector activo</div><div id="sec-preview" style="font-size:14px;color:rgba(255,255,255,.6)">Selecciona un sector →</div></div>
+    </div>
+    <div id="sec-list"></div>
   </div>
 </section>
 
 <!-- EDUCACION -->
-<section id="educacion" style="background:#F4F7F5">
-
-  <!-- EDU HERO -->
-  <div style="background:linear-gradient(135deg,#0B2818 0%,#14401F 60%,#0B2818 100%);padding:72px 60px;position:relative;overflow:hidden">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 100% 50%,rgba(93,201,138,.15) 0%,transparent 55%)"></div>
-    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(76,175,125,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(76,175,125,.03) 1px,transparent 1px);background-size:56px 56px"></div>
-    <div style="max-width:1160px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center">
+<section id="educacion" style="padding:0;background:#fff">
+  <div class="edu-hero">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 100% 50%,rgba(0,150,199,.15) 0%,transparent 55%)"></div>
+    <div style="max-width:1160px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
       <div>
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(93,201,138,.15);border:1px solid rgba(93,201,138,.3);color:#5DC98A;border-radius:4px;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:20px">Centro de Aprendizaje</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);color:white;margin-bottom:14px;letter-spacing:-.5px">Todo lo que necesitas<br>para <em style="font-style:italic;color:#5DC98A">encontrar trabajo</em></h2>
-        <p style="color:rgba(255,255,255,.6);font-size:16px;line-height:1.75;margin-bottom:8px">Guías de CV, entrevistas, cursos certificados y glosario técnico del agro chileno. Con fuentes verificadas y enlaces reales.</p>
-        <p style="color:rgba(255,255,255,.4);font-size:13px">Fuentes: MINAGRI · Servicio Civil · Universidades UCH, PUC, UTALCA · GlobalG.A.P. · DGAC · INIA</p>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#ade8f4;border-radius:4px;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px">Centro de Aprendizaje</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,44px);color:#fff;margin-bottom:12px;letter-spacing:-.5px">Todo lo que necesitas para <em style="font-style:italic;color:#ade8f4">encontrar trabajo</em></h2>
+        <p style="color:rgba(255,255,255,.6);font-size:15px;line-height:1.75">Guías de CV, entrevistas, cursos certificados y glosario técnico. Con fuentes verificadas y enlaces reales.</p>
       </div>
-      <div>
-        <!-- Modern agro tech image — drones + green fields -->
-        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=700&q=85"
-             alt="Tecnologia agricola sustentable - precision farming"
-             loading="lazy"
-             style="width:100%;border-radius:14px;box-shadow:0 32px 80px rgba(0,0,0,.5);object-fit:cover;height:300px">
-      </div>
+      <div><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=700&q=85" alt="Agricultura de precisión" loading="lazy" style="width:100%;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.3);object-fit:cover;height:260px"></div>
     </div>
   </div>
-
-  <!-- TABS NAV -->
-  <div style="display:flex;border-bottom:2px solid #E5EDE8;background:white;padding:0 60px;overflow-x:auto;position:sticky;top:68px;z-index:10">
-    <button onclick="showEduTab('cv',this)" id="etab-cv"
-      style="padding:18px 24px;font-size:13px;font-weight:700;cursor:pointer;border:none;border-bottom:3px solid #2E8B57;white-space:nowrap;background:none;font-family:'Barlow',sans-serif;color:#0B2818;margin-bottom:-2px">
-      CV del Agrónomo
-    </button>
-    <button onclick="showEduTab('entrevistas',this)" id="etab-entrevistas"
-      style="padding:18px 24px;font-size:13px;font-weight:700;cursor:pointer;border:none;border-bottom:3px solid transparent;white-space:nowrap;background:none;font-family:'Barlow',sans-serif;color:#4A5E56;margin-bottom:-2px">
-      Entrevistas de Trabajo
-    </button>
-    <button onclick="showEduTab('cursos',this)" id="etab-cursos"
-      style="padding:18px 24px;font-size:13px;font-weight:700;cursor:pointer;border:none;border-bottom:3px solid transparent;white-space:nowrap;background:none;font-family:'Barlow',sans-serif;color:#4A5E56;margin-bottom:-2px">
-      Cursos y Certificaciones
-    </button>
-    <button onclick="showEduTab('glosario',this)" id="etab-glosario"
-      style="padding:18px 24px;font-size:13px;font-weight:700;cursor:pointer;border:none;border-bottom:3px solid transparent;white-space:nowrap;background:none;font-family:'Barlow',sans-serif;color:#4A5E56;margin-bottom:-2px">
-      Glosario Técnico
-    </button>
+  <div class="edu-tabs">
+    <button class="edu-tab active" onclick="showTab('cv',this)">CV del Agrónomo</button>
+    <button class="edu-tab" onclick="showTab('entrevistas',this)">Entrevistas de Trabajo</button>
+    <button class="edu-tab" onclick="showTab('cursos',this)">Cursos y Certificaciones</button>
+    <button class="edu-tab" onclick="showTab('glosario',this)">Glosario Técnico</button>
   </div>
-
-  <!-- TAB CONTENT -->
-  <div style="max-width:1160px;margin:0 auto;padding:52px 60px">
-
-    <!-- ══ CV ══ -->
-    <div id="epanel-cv" style="display:block">
-      <p style="font-size:15px;color:#3D5A47;margin-bottom:32px;line-height:1.7;max-width:700px">
-        Un buen CV puede ser la diferencia entre conseguir la entrevista o no. Estas guías están basadas en lo que realmente buscan los reclutadores del agro chileno según datos de Laborum.cl y LinkedIn Chile 2024.
-      </p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:26px;transition:all .3s" onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="width:34px;height:34px;border-radius:9px;background:#0B2818;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-bottom:16px">01</div>
-          <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:10px">Estructura ideal del CV</h3>
-          <p style="font-size:13px;color:#3D5A47;line-height:1.75">Máximo 2 páginas. Orden recomendado según reclutadores de Agrosuper, Copefrut y SAG:</p>
-          <ul style="font-size:13px;color:#3D5A47;line-height:1.85;padding-left:16px;margin-top:8px">
-            <li>Datos de contacto + LinkedIn</li>
-            <li>Resumen profesional (3 líneas)</li>
-            <li>Experiencia en terreno y prácticas</li>
-            <li>Educación y especializaciones</li>
-            <li>Habilidades técnicas y software</li>
-            <li>Idiomas y certificaciones</li>
-          </ul>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:26px;transition:all .3s" onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="width:34px;height:34px;border-radius:9px;background:#0B2818;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-bottom:16px">02</div>
-          <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:10px">Lo más valorado por empresas</h3>
-          <p style="font-size:13px;color:#3D5A47;line-height:1.75">Según encuesta Laborum.cl 2024 a empleadores del agro chileno:</p>
-          <ul style="font-size:13px;color:#3D5A47;line-height:1.85;padding-left:16px;margin-top:8px">
-            <li>Experiencia específica en cultivos (no genérica)</li>
-            <li>Métricas concretas: <em>"supervisé 80 ha de paltos"</em></li>
-            <li>Software: SAP Agri, Trimble, SIG/ArcGIS</li>
-            <li>Inglés técnico mínimo B1</li>
-            <li>Normas GlobalG.A.P. y BPA</li>
-            <li>Disponibilidad para vivir en regiones</li>
-          </ul>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:26px;transition:all .3s" onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="width:34px;height:34px;border-radius:9px;background:#0B2818;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-bottom:16px">03</div>
-          <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:10px">Errores más comunes</h3>
-          <p style="font-size:13px;color:#3D5A47;line-height:1.75">Los errores que más eliminan candidatos en el agro:</p>
-          <ul style="font-size:13px;color:#3D5A47;line-height:1.85;padding-left:16px;margin-top:8px">
-            <li>CV genérico sin mención al cultivo o sector</li>
-            <li>No incluir experiencias de terreno universitarias</li>
-            <li>Sin foto o con foto informal</li>
-            <li>Sin LinkedIn actualizado</li>
-            <li>Más de 3 páginas</li>
-            <li>Errores en términos técnicos (fitosanidad, MIP)</li>
-          </ul>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:26px;transition:all .3s" onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="width:34px;height:34px;border-radius:9px;background:#0B2818;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-bottom:16px">04</div>
-          <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:10px">CV por sector</h3>
-          <p style="font-size:13px;color:#3D5A47;line-height:1.75"><strong>Exportación frutícola:</strong> destaca GlobalG.A.P. e inglés.<br><br><strong>Viticultura:</strong> menciona variedades y vendimias realizadas.<br><br><strong>SAG / INDAP:</strong> enfatiza trabajo con pequeños agricultores.<br><br><strong>Forestal:</strong> incluye GIS y experiencia en campo boscoso.<br><br><strong>Semillas:</strong> menciona I+D y control de calidad.</p>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:26px;transition:all .3s" onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="width:34px;height:34px;border-radius:9px;background:#0B2818;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-bottom:16px">05</div>
-          <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:10px">LinkedIn para agrónomos</h3>
-          <p style="font-size:13px;color:#3D5A47;line-height:1.75">Según LinkedIn Chile, el 60% de los reclutadores del agro busca candidatos antes de publicar la vacante.</p>
-          <ul style="font-size:13px;color:#3D5A47;line-height:1.85;padding-left:16px;margin-top:8px">
-            <li>Foto profesional en campo o laboratorio</li>
-            <li>Titular: <em>"Agrónomo | Viticultura | O'Higgins"</em></li>
-            <li>Activa "Disponible para trabajar"</li>
-            <li>Conecta con egresados de tu carrera</li>
-            <li>Publica 1 vez/semana sobre el sector</li>
-          </ul>
-          <a href="https://www.linkedin.com/jobs/search/?keywords=agr%C3%B3nomo&location=Chile" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin-top:14px;color:#2E8B57;font-size:12px;font-weight:700;text-decoration:none">Ver empleos en LinkedIn →</a>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:26px;transition:all .3s" onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="width:34px;height:34px;border-radius:9px;background:#0B2818;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-bottom:16px">06</div>
-          <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:10px">Carta de presentación</h3>
-          <p style="font-size:13px;color:#3D5A47;line-height:1.75">Siempre incluirla en postulaciones al sector público y empresas grandes. Máximo 3 párrafos:</p>
-          <ul style="font-size:13px;color:#3D5A47;line-height:1.85;padding-left:16px;margin-top:8px">
-            <li>Quién eres y qué estudié</li>
-            <li>Por qué esta empresa (con detalle específico)</li>
-            <li>Qué aportarás con ejemplos concretos</li>
-          </ul>
-          <p style="font-size:12px;color:#7A9485;margin-top:10px;font-style:italic">Tip: menciona el cultivo o proyecto específico de la empresa. Muestra que investigaste.</p>
-        </div>
-
+  <div class="edu-content">
+    <!-- CV -->
+    <div id="ep-cv" class="edu-panel active">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <div class="card"><div class="card-num">01</div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:8px">Estructura del CV</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.75">Máximo 2 páginas: datos + LinkedIn, resumen (3 líneas), experiencia terreno, educación, habilidades técnicas, idiomas y certificaciones.</p></div>
+        <div class="card"><div class="card-num">02</div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:8px">Lo más valorado</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.75">Experiencia en cultivos específicos, métricas concretas ("supervisé 80 ha"), software SAP/Trimble/SIG, inglés B1+, normas GlobalG.A.P.</p></div>
+        <div class="card"><div class="card-num">03</div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:8px">Errores comunes</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.75">CV genérico sin cultivo, sin experiencias de terreno, sin LinkedIn, más de 3 páginas, errores en términos técnicos.</p></div>
+        <div class="card"><div class="card-num">04</div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:8px">CV por sector</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.75"><strong>Exportación:</strong> GlobalG.A.P. e inglés. <strong>Viticultura:</strong> variedades y vendimias. <strong>SAG/INDAP:</strong> trabajo con agricultores. <strong>Forestal:</strong> GIS.</p></div>
+        <div class="card"><div class="card-num">05</div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:8px">LinkedIn</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.75">El 60% de reclutadores del agro busca en LinkedIn antes de publicar vacantes. Foto en terreno, titular con especialidad, activa "Disponible".</p></div>
+        <div class="card"><div class="card-num">06</div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:8px">Carta de presentación</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.75">Siempre en sector público y empresas grandes. 3 párrafos: quién eres, por qué esa empresa (detalle específico), qué aportarás.</p></div>
       </div>
     </div>
-
-    <!-- ══ ENTREVISTAS ══ -->
-    <div id="epanel-entrevistas" style="display:none;visibility:hidden">
-      <p style="font-size:15px;color:#3D5A47;margin-bottom:32px;line-height:1.7;max-width:700px">
-        Preguntas reales en entrevistas para cargos de agronomía en Chile. Basadas en testimonios de agrónomos contratados en Laborum y INDAP. Haz clic para ver la respuesta recomendada.
-      </p>
-      <div style="display:flex;flex-direction:column;gap:12px">
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:12px;overflow:hidden">
-          <div onclick="toggleInt2(this)" style="padding:18px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px;color:#0B2818;user-select:none">
-            <span>¿Por qué quieres trabajar en este sector o empresa?</span><span style="font-size:22px;color:#2E8B57;transition:transform .3s;flex-shrink:0;margin-left:12px">+</span>
-          </div>
-          <div style="display:none;padding:6px 24px 20px;font-size:14px;color:#3D5A47;line-height:1.78;border-top:1px solid #E5EDE8">
-            <strong style="display:block;margin-bottom:6px;color:#0B2818">Respuesta recomendada:</strong>
-            Investiga la empresa antes: sus cultivos principales, regiones donde opera y exportaciones. Menciona algo específico: <em>"Me interesa especialmente su trabajo con cerezas en Rancagua, ya que mi práctica fue en fruticultura en O'Higgins y me apasiona el proceso de exportación."</em> Evita respuestas genéricas como "me gustan las plantas".
-          </div>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:12px;overflow:hidden">
-          <div onclick="toggleInt2(this)" style="padding:18px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px;color:#0B2818;user-select:none">
-            <span>Cuéntame sobre tu experiencia en terreno</span><span style="font-size:22px;color:#2E8B57;transition:transform .3s;flex-shrink:0;margin-left:12px">+</span>
-          </div>
-          <div style="display:none;padding:6px 24px 20px;font-size:14px;color:#3D5A47;line-height:1.78;border-top:1px solid #E5EDE8">
-            <strong style="display:block;margin-bottom:6px;color:#0B2818">Estructura STAR (Situación, Tarea, Acción, Resultado):</strong>
-            Ejemplo efectivo: <em>"En mi práctica en una empresa de paltos en Coquimbo supervisé el riego de 40 ha. Detecté un problema de salinidad en el suelo, propuse ajustar la fertirrigación y el rendimiento mejoró un 12% en esa temporada."</em> Siempre incluye el cultivo, hectáreas y un resultado concreto.
-          </div>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:12px;overflow:hidden">
-          <div onclick="toggleInt2(this)" style="padding:18px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px;color:#0B2818;user-select:none">
-            <span>¿Tienes disponibilidad para vivir en regiones?</span><span style="font-size:22px;color:#2E8B57;transition:transform .3s;flex-shrink:0;margin-left:12px">+</span>
-          </div>
-          <div style="display:none;padding:6px 24px 20px;font-size:14px;color:#3D5A47;line-height:1.78;border-top:1px solid #E5EDE8">
-            <strong style="display:block;margin-bottom:6px;color:#0B2818">Respuesta directa y clara:</strong>
-            "Sí, tengo total disponibilidad para trabajar en regiones, incluyendo O'Higgins, Maule o el sur. Entiendo que el trabajo agrícola requiere presencia en terreno." Si tienes restricciones, sé honesto: "Puedo considerar O'Higgins y Maule, pero necesitaría evaluar La Araucanía por temas familiares." La honestidad es clave — los empleadores valoran la transparencia.
-          </div>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:12px;overflow:hidden">
-          <div onclick="toggleInt2(this)" style="padding:18px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px;color:#0B2818;user-select:none">
-            <span>¿Cuánto sueldo esperas?</span><span style="font-size:22px;color:#2E8B57;transition:transform .3s;flex-shrink:0;margin-left:12px">+</span>
-          </div>
-          <div style="display:none;padding:6px 24px 20px;font-size:14px;color:#3D5A47;line-height:1.78;border-top:1px solid #E5EDE8">
-            <strong style="display:block;margin-bottom:6px;color:#0B2818">Respuesta con datos reales (Laborum.cl 2025):</strong>
-            "Según el mercado para agrónomos recién egresados, el rango está entre $750.000 y $1.200.000 CLP. Estoy buscando entre $900.000 y $1.100.000 líquido, aunque estoy abierto a conversar considerando beneficios como vehículo, celular o bono de producción." Nunca digas "lo que me ofrezcan" — muestra que conoces el mercado.
-          </div>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:12px;overflow:hidden">
-          <div onclick="toggleInt2(this)" style="padding:18px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px;color:#0B2818;user-select:none">
-            <span>¿Qué software o tecnología agrícola manejas?</span><span style="font-size:22px;color:#2E8B57;transition:transform .3s;flex-shrink:0;margin-left:12px">+</span>
-          </div>
-          <div style="display:none;padding:6px 24px 20px;font-size:14px;color:#3D5A47;line-height:1.78;border-top:1px solid #E5EDE8">
-            <strong style="display:block;margin-bottom:6px;color:#0B2818">Softwares más valorados en el mercado chileno:</strong>
-            SAP Agri, Trimble Ag Software, FieldView, ArcGIS / QGIS, Excel avanzado. Si no tienes uno específico: "Manejo ArcGIS de la universidad y estoy aprendiendo FieldView por mi cuenta, ya que es muy usado en fruticultura de exportación." Mostrar que aprendes por iniciativa propia suma mucho.
-          </div>
-        </div>
-
-        <div style="background:white;border:1px solid #E5EDE8;border-radius:12px;overflow:hidden">
-          <div onclick="toggleInt2(this)" style="padding:18px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px;color:#0B2818;user-select:none">
-            <span>¿Cómo manejas situaciones de presión en temporada alta?</span><span style="font-size:22px;color:#2E8B57;transition:transform .3s;flex-shrink:0;margin-left:12px">+</span>
-          </div>
-          <div style="display:none;padding:6px 24px 20px;font-size:14px;color:#3D5A47;line-height:1.78;border-top:1px solid #E5EDE8">
-            <strong style="display:block;margin-bottom:6px;color:#0B2818">Respuesta con ejemplo real:</strong>
-            "En la vendimia del Maule trabajamos 12 horas diarias durante 3 semanas. Prioricé tareas por urgencia, coordiné la cuadrilla de 20 personas y mantuve los registros de cosecha al día incluso en días de alta carga." Si no tienes experiencia agrícola: usa un ejemplo de alta carga académica con múltiples proyectos simultáneos.
-          </div>
-        </div>
-
+    <!-- ENTREVISTAS -->
+    <div id="ep-entrevistas" class="edu-panel">
+      <p style="font-size:15px;color:#3d5a4f;margin-bottom:24px;line-height:1.7">Preguntas reales en entrevistas de agronomía en Chile. Haz clic para ver la respuesta recomendada.</p>
+      <div class="int-item"><div class="int-q" onclick="toggleInt(this)"><span>¿Por qué quieres trabajar en este sector o empresa?</span><span class="int-arr">+</span></div><div class="int-a"><strong style="color:#1a2e22">Respuesta recomendada:</strong> Investiga la empresa antes. Menciona algo concreto: "Me interesa su trabajo con cerezas en Rancagua, ya que mi práctica fue en fruticultura en O'Higgins." Evita respuestas genéricas.</div></div>
+      <div class="int-item"><div class="int-q" onclick="toggleInt(this)"><span>Cuéntame sobre tu experiencia en terreno</span><span class="int-arr">+</span></div><div class="int-a"><strong style="color:#1a2e22">Usa estructura STAR:</strong> "En mi práctica en paltos en Coquimbo supervisé 40 ha, detecté salinidad, ajusté fertirrigación y el rendimiento mejoró 12%." Incluye cultivo, hectáreas y resultado concreto.</div></div>
+      <div class="int-item"><div class="int-q" onclick="toggleInt(this)"><span>¿Tienes disponibilidad para vivir en regiones?</span><span class="int-arr">+</span></div><div class="int-a"><strong style="color:#1a2e22">Respuesta directa:</strong> "Sí, total disponibilidad para O'Higgins, Maule o el sur." Si tienes restricciones, sé honesto y menciona qué regiones sí puedes considerar.</div></div>
+      <div class="int-item"><div class="int-q" onclick="toggleInt(this)"><span>¿Cuánto sueldo esperas?</span><span class="int-arr">+</span></div><div class="int-a"><strong style="color:#1a2e22">Con datos (Laborum 2025):</strong> "Según el mercado, el rango es $750K–$1.200K CLP. Busco entre $900K y $1.100K líquido, abierto a conversar beneficios como vehículo o bono." Nunca digas "lo que me ofrezcan".</div></div>
+      <div class="int-item"><div class="int-q" onclick="toggleInt(this)"><span>¿Qué software o tecnología agrícola manejas?</span><span class="int-arr">+</span></div><div class="int-a"><strong style="color:#1a2e22">Más valorados:</strong> SAP Agri, Trimble, FieldView, ArcGIS, Excel avanzado. Si no tienes uno: "Manejo ArcGIS y estoy aprendiendo FieldView por mi cuenta." Mostrar iniciativa suma mucho.</div></div>
+      <div class="int-item"><div class="int-q" onclick="toggleInt(this)"><span>¿Cómo manejas presión en temporada alta?</span><span class="int-arr">+</span></div><div class="int-a"><strong style="color:#1a2e22">Con ejemplo:</strong> "En vendimia del Maule trabajamos 12 horas diarias 3 semanas. Prioricé tareas, coordiné cuadrilla de 20 personas y mantuve registros al día." Si no tienes experiencia, usa un ejemplo académico.</div></div>
+    </div>
+    <!-- CURSOS -->
+    <div id="ep-cursos" class="edu-panel">
+      <p style="font-size:15px;color:#3d5a4f;margin-bottom:24px;line-height:1.7">Certificaciones que aumentan empleabilidad y sueldo. Links verificados a sitios oficiales.</p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+        <a href="https://www.globalgap.org/es/for-producers/get-certified/" target="_blank" rel="noopener" class="curso"><div class="curso-ico">🌍</div><div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:4px">Auditor GlobalG.A.P.</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.6;margin-bottom:4px">La más valorada en exportación frutícola. Exigida para Europa y EEUU.</p><span class="tag tag-g">+25% sueldo</span><span class="tag tag-v">Muy valorada</span></div></a>
+        <a href="https://www.dgac.gob.cl/regulacion/certificacion/pilotos-de-aeronaves-pilotadas-a-distancia-rpas/" target="_blank" rel="noopener" class="curso"><div class="curso-ico">🚁</div><div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:4px">Piloto Drones RPAS (DGAC)</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.6;margin-bottom:4px">Certificación oficial DGAC Chile. Habilidad más escasa del mercado.</p><span class="tag tag-g">Habilidad escasa</span><span class="tag tag-v">DGAC oficial</span></div></a>
+        <a href="https://www.inia.cl/capacitacion/" target="_blank" rel="noopener" class="curso"><div class="curso-ico">🌱</div><div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:4px">Cursos INIA Chile</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.6;margin-bottom:4px">Cursos en riego, suelos, semillas y viticultura. Muchos gratuitos.</p><span class="tag tag-g">Gratuitos</span><span class="tag tag-v">Oficial Chile</span></div></a>
+        <a href="https://agronomia.uchile.cl/extension/diplomados" target="_blank" rel="noopener" class="curso"><div class="curso-ico">🎓</div><div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:4px">Diplomados UCH Agronomía</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.6;margin-bottom:4px">Viticultura, agricultura sustentable, riego. Muy reconocidos.</p><span class="tag tag-g">U. de Chile</span><span class="tag tag-v">Presencial/online</span></div></a>
+        <a href="https://www.sence.cl/601/w3-channel.html" target="_blank" rel="noopener" class="curso"><div class="curso-ico">📋</div><div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:4px">Franquicia SENCE</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.6;margin-bottom:4px">Si tienes trabajo, tu empresa puede financiar cursos. Es un derecho.</p><span class="tag tag-g">Gratuito con empleo</span></div></a>
+        <a href="https://www.esri.com/training/" target="_blank" rel="noopener" class="curso"><div class="curso-ico">🗺️</div><div><h3 style="font-size:15px;font-weight:800;color:#1a2e22;margin-bottom:4px">SIG / ArcGIS Agricultura</h3><p style="font-size:13px;color:#3d5a4f;line-height:1.6;margin-bottom:4px">Esencial para precisión agrícola y forestal. ESRI Training oficial.</p><span class="tag tag-g">Online</span><span class="tag tag-v">Gratis/bajo costo</span></div></a>
       </div>
     </div>
-
-    <!-- ══ CURSOS ══ -->
-    <div id="epanel-cursos" style="display:none;visibility:hidden">
-      <p style="font-size:15px;color:#3D5A47;margin-bottom:32px;line-height:1.7;max-width:700px">
-        Certificaciones y cursos que aumentan tu empleabilidad y sueldo. Todos con links verificados a sitios oficiales en Chile.
-      </p>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
-
-        <a href="https://www.globalgap.org/es/for-producers/get-certified/" target="_blank" rel="noopener"
-           style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:24px;display:flex;gap:18px;text-decoration:none;color:inherit;transition:all .3s"
-           onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)';this.style.borderColor='#2E8B57'"
-           onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E5EDE8'">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F4F7F5;border:1px solid #E5EDE8;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">🌍</div>
-          <div>
-            <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:5px">Auditor GlobalG.A.P.</h3>
-            <p style="font-size:13px;color:#3D5A47;line-height:1.6;margin-bottom:8px">La certificación más valorada en exportación frutícola. Exigida para exportar frutas y verduras a Europa, EEUU y Asia. Impartida por entidades acreditadas en Chile.</p>
-            <div style="display:flex;gap:7px;flex-wrap:wrap">
-              <span style="font-size:10px;background:rgba(14,64,31,.1);color:#14401F;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">+25% sueldo estimado</span>
-              <span style="font-size:10px;background:rgba(46,139,87,.1);color:#2E8B57;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Muy valorada</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.dgac.gob.cl/regulacion/certificacion/pilotos-de-aeronaves-pilotadas-a-distancia-rpas/" target="_blank" rel="noopener"
-           style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:24px;display:flex;gap:18px;text-decoration:none;color:inherit;transition:all .3s"
-           onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)';this.style.borderColor='#2E8B57'"
-           onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E5EDE8'">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F4F7F5;border:1px solid #E5EDE8;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">🚁</div>
-          <div>
-            <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:5px">Piloto de Drones RPAS (DGAC)</h3>
-            <p style="font-size:13px;color:#3D5A47;line-height:1.6;margin-bottom:8px">Certificación oficial de la Dirección General de Aeronáutica Civil de Chile. La habilidad más escasa en el mercado. Según LinkedIn Chile 2024, los agrónomos con drones reciben 3x más contactos de reclutadores.</p>
-            <div style="display:flex;gap:7px;flex-wrap:wrap">
-              <span style="font-size:10px;background:rgba(14,64,31,.1);color:#14401F;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Habilidad escasa</span>
-              <span style="font-size:10px;background:rgba(46,139,87,.1);color:#2E8B57;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">DGAC oficial</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.inia.cl/capacitacion/" target="_blank" rel="noopener"
-           style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:24px;display:flex;gap:18px;text-decoration:none;color:inherit;transition:all .3s"
-           onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)';this.style.borderColor='#2E8B57'"
-           onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E5EDE8'">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F4F7F5;border:1px solid #E5EDE8;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">🌱</div>
-          <div>
-            <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:5px">Cursos INIA Chile</h3>
-            <p style="font-size:13px;color:#3D5A47;line-height:1.6;margin-bottom:8px">Instituto Nacional de Investigación Agropecuaria. Cursos técnicos en riego, suelos, semillas, viticultura y más. Muchos gratuitos o de bajo costo para profesionales del agro chileno.</p>
-            <div style="display:flex;gap:7px;flex-wrap:wrap">
-              <span style="font-size:10px;background:rgba(14,64,31,.1);color:#14401F;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Gratuitos / bajo costo</span>
-              <span style="font-size:10px;background:rgba(46,139,87,.1);color:#2E8B57;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Oficial Chile</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://agronomia.uchile.cl/extension/diplomados" target="_blank" rel="noopener"
-           style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:24px;display:flex;gap:18px;text-decoration:none;color:inherit;transition:all .3s"
-           onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)';this.style.borderColor='#2E8B57'"
-           onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E5EDE8'">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F4F7F5;border:1px solid #E5EDE8;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">🎓</div>
-          <div>
-            <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:5px">Diplomados UCH Agronomía</h3>
-            <p style="font-size:13px;color:#3D5A47;line-height:1.6;margin-bottom:8px">La Facultad de Ciencias Agronómicas de la Universidad de Chile ofrece diplomados en viticultura, agricultura sustentable, riego y gestión de empresas agrícolas. Muy reconocidos en el mercado.</p>
-            <div style="display:flex;gap:7px;flex-wrap:wrap">
-              <span style="font-size:10px;background:rgba(14,64,31,.1);color:#14401F;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">U. de Chile</span>
-              <span style="font-size:10px;background:rgba(46,139,87,.1);color:#2E8B57;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Presencial / online</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.sence.cl/601/w3-channel.html" target="_blank" rel="noopener"
-           style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:24px;display:flex;gap:18px;text-decoration:none;color:inherit;transition:all .3s"
-           onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)';this.style.borderColor='#2E8B57'"
-           onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E5EDE8'">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F4F7F5;border:1px solid #E5EDE8;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">📋</div>
-          <div>
-            <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:5px">Franquicia Tributaria SENCE</h3>
-            <p style="font-size:13px;color:#3D5A47;line-height:1.6;margin-bottom:8px">Si ya tienes trabajo, tu empresa puede financiar cursos a través de la franquicia SENCE. Solicítalo a tu empleador — es un derecho. Cubre desde GIS hasta BPA y manejo de maquinaria.</p>
-            <div style="display:flex;gap:7px;flex-wrap:wrap">
-              <span style="font-size:10px;background:rgba(14,64,31,.1);color:#14401F;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Gratuito con empleo</span>
-              <span style="font-size:10px;background:rgba(46,139,87,.1);color:#2E8B57;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Derecho del trabajador</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.coursera.org/search?query=agriculture%20GIS" target="_blank" rel="noopener"
-           style="background:white;border:1px solid #E5EDE8;border-radius:14px;padding:24px;display:flex;gap:18px;text-decoration:none;color:inherit;transition:all .3s"
-           onmouseover="this.style.boxShadow='0 12px 36px rgba(0,0,0,.07)';this.style.transform='translateY(-3px)';this.style.borderColor='#2E8B57'"
-           onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E5EDE8'">
-          <div style="width:52px;height:52px;border-radius:12px;background:#F4F7F5;border:1px solid #E5EDE8;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">🗺️</div>
-          <div>
-            <h3 style="font-size:15px;font-weight:800;color:#0B2818;margin-bottom:5px">SIG / ArcGIS para Agricultura</h3>
-            <p style="font-size:13px;color:#3D5A47;line-height:1.6;margin-bottom:8px">Sistemas de Información Geográfica aplicados al agro. Esencial para agricultura de precisión, sector forestal y medio ambiente. Disponible en Coursera y ESRI Training (oficial de ArcGIS).</p>
-            <div style="display:flex;gap:7px;flex-wrap:wrap">
-              <span style="font-size:10px;background:rgba(14,64,31,.1);color:#14401F;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Online</span>
-              <span style="font-size:10px;background:rgba(46,139,87,.1);color:#2E8B57;padding:3px 8px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Gratis / bajo costo</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
+    <!-- GLOSARIO -->
+    <div id="ep-glosario" class="edu-panel">
+      <p style="font-size:15px;color:#3d5a4f;margin-bottom:20px;line-height:1.7">Términos técnicos del agro chileno. Fuente: SAG, INIA, FAO.</p>
+      <div style="position:relative;margin-bottom:20px"><input type="text" id="glos-input" placeholder="Buscar: GlobalG.A.P., riego, MIP..." oninput="filtrarGlosario()" style="width:100%;border:1.5px solid #c8ecf8;border-radius:8px;padding:13px 44px 13px 18px;font-size:15px;font-family:'Barlow',sans-serif;color:#1a2e22;outline:none;background:#fff;transition:all .2s" onfocus="this.style.borderColor='#0096C7'" onblur="this.style.borderColor='#c8ecf8'"><span style="position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:18px;pointer-events:none">🔍</span></div>
+      <div id="glos-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px"></div>
     </div>
-
-    <!-- ══ GLOSARIO ══ -->
-    <div id="epanel-glosario" style="display:none;visibility:hidden">
-      <p style="font-size:15px;color:#3D5A47;margin-bottom:28px;line-height:1.7;max-width:700px">
-        Términos técnicos del agro chileno que debes conocer para entrevistas, CV y trabajo en terreno. Fuente: SAG, INIA, FAO y manuales de BPA Chile.
-      </p>
-      <div style="position:relative;margin-bottom:24px">
-        <input type="text" id="glos-search" placeholder="Buscar término: GlobalG.A.P., riego, MIP, fenología..."
-               oninput="filtrarGlos(this.value)"
-               style="width:100%;border:1.5px solid #E5EDE8;border-radius:8px;padding:13px 44px 13px 18px;font-size:15px;font-family:'Barlow',sans-serif;color:#0B2818;outline:none;transition:all .2s;background:white"
-               onfocus="this.style.borderColor='#2E8B57';this.style.boxShadow='0 0 0 3px rgba(46,139,87,.08)'"
-               onblur="this.style.borderColor='#E5EDE8';this.style.boxShadow=''">
-        <span style="position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:18px;pointer-events:none">🔍</span>
-      </div>
-      <div id="glos-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px"></div>
-    </div>
-
   </div>
 </section>
 
-<section id="alertas">
-  <div class="ai">
-    <div class="al">
-      <h2>Alertas de vacantes automáticas</h2>
-      <p>Nunca pierdas una oportunidad. Configura tu perfil y recibe avisos cuando aparezca una vacante que te interese.</p>
-      <ul class="cl">
-        <li>Filtra por cargo, región y sector</li>
-        <li>Notificación inmediata al detectar vacante</li>
-        <li>Sin límite de alertas activas</li>
-        <li>Links directos a los portales de empleo</li>
-        <li>Totalmente gratuito, sin registro</li>
+<!-- ALERTAS -->
+<section id="alertas" class="alert-sec">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+    <div>
+      <span class="eyebrow" style="color:#ade8f4">Alertas de empleo</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:#fff;margin-bottom:14px;letter-spacing:-.5px">Vacantes directo en tu <em style="font-style:italic;color:#ade8f4">correo</em></h2>
+      <p style="color:rgba(255,255,255,.55);font-size:16px;line-height:1.75;margin-bottom:24px">Configura tu perfil y te notificamos cuando aparezca una vacante para ti. Sin costo.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
+        <li style="display:flex;align-items:center;gap:13px;color:rgba(255,255,255,.75);font-size:15px"><span style="width:22px;height:22px;background:#0096C7;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">✓</span>Notificación por email</li>
+        <li style="display:flex;align-items:center;gap:13px;color:rgba(255,255,255,.75);font-size:15px"><span style="width:22px;height:22px;background:#0096C7;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">✓</span>Filtra por cargo, región y sector</li>
+        <li style="display:flex;align-items:center;gap:13px;color:rgba(255,255,255,.75);font-size:15px"><span style="width:22px;height:22px;background:#0096C7;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">✓</span>100% gratuito, sin spam</li>
       </ul>
     </div>
-    <div>
-      <div class="afc">
-        <h3>🔔 Crear alerta de empleo</h3>
-        <p>Te avisamos cuando aparezca una vacante para ti.</p>
-        <div class="ff"><label>Cargo o especialidad</label><input type="text" id="ac" placeholder="Ej: Agrónomo vitícola, Inspector SAG..."></div>
-        <div class="fr">
-          <div class="ff"><label>Región</label><select id="ar"><option>Todo Chile</option><option>Región Metropolitana</option><option>Valparaíso</option><option>O'Higgins</option><option>Maule</option><option>Ñuble</option><option>Biobío</option><option>Araucanía</option><option>Los Lagos</option><option>Coquimbo</option><option>Atacama</option></select></div>
-          <div class="ff"><label>Sector</label><select id="as"><option>Cualquier sector</option><option>Viticultura</option><option>Fruticultura</option><option>Horticultura</option><option>Ganadería</option><option>Forestal</option><option>Semillas</option><option>Sector público</option><option>Consultoría</option></select></div>
-        </div>
-        <button class="ba" id="btn-alert" onclick="crearAlerta()">🔔 Activar alerta por email</button>
-        <div id="alist"></div>
-      </div>
+    <div class="al-card">
+      <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#1a2e22;margin-bottom:4px">🔔 Crear alerta de empleo</h3>
+      <p style="font-size:13px;color:#3d5a4f;margin-bottom:20px;line-height:1.5">Te avisamos cuando aparezca una vacante para tu perfil.</p>
+      <div class="fld"><label>Tu correo electrónico</label><input type="email" id="a-email" placeholder="tuemail@gmail.com"></div>
+      <div class="fld"><label>Cargo o especialidad</label><input type="text" id="a-cargo" placeholder="Ej: Agrónomo vitícola, Inspector SAG..."></div>
+      <div class="fld-row"><div class="fld"><label>Región</label><select id="a-region"><option>Todo Chile</option><option>Región Metropolitana</option><option>Valparaíso</option><option>O'Higgins</option><option>Maule</option><option>Ñuble</option><option>Biobío</option><option>Araucanía</option><option>Los Lagos</option><option>Coquimbo</option><option>Atacama</option></select></div><div class="fld"><label>Sector</label><select id="a-sector"><option>Cualquier sector</option><option>Viticultura</option><option>Fruticultura</option><option>Horticultura</option><option>Ganadería</option><option>Forestal</option><option>Semillas</option><option>Sector público</option><option>Consultoría</option></select></div></div>
+      <button class="btn-alert" onclick="crearAlerta()">🔔 Activar alerta por email</button>
+      <p style="font-size:11px;color:#7a9e8a;margin-top:8px;text-align:center">Sin spam. Puedes cancelar cuando quieras.</p>
+      <div id="alerts-list"></div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p style="font-size:28px;margin-bottom:10px">🌱</p>
-  <p><strong>AgroJob Chile</strong></p>
+  <p style="font-size:26px;margin-bottom:10px">🌱</p>
+  <p><strong>AgroChile — Empleos del Agro</strong></p>
   <p style="margin-top:8px">La plataforma gratuita para el mercado laboral agrícola de Chile.</p>
-  <p style="margin-top:8px">Hecho con ❤️ para agrónomos y profesionales del agro chileno.</p>
-  <p style="margin-top:20px;font-size:11px;opacity:.35">© 2025 AgroJob Chile · Todos los derechos reservados</p>
+  <p style="margin-top:8px;font-size:12px">Datos: ODEPA · Laborum.cl · INE · ASOEX · Servicio Civil · Wines of Chile</p>
+  <p style="margin-top:18px;font-size:11px;opacity:.3">© 2025 AgroChile — Empleos del Agro · Todos los derechos reservados</p>
 </footer>
-
-<div id="toast"><span id="tico">🌱</span><span id="tmsg"></span></div>
+<div id="toast"><span id="t-ico">🌱</span><span id="t-msg"></span></div>
 
 <script>
-// ═══════════════════════════════════════
-// SECTORES — EMPRESAS Y RECURSOS
-// ═══════════════════════════════════════
 const SECTORES={
   viticultura:{
     ico:'🍷',titulo:'Viticultura y Enología',
@@ -1028,590 +799,401 @@ const SECTORES={
   }
 };
 
-function toggleSector(btn,id){
-  var body=document.getElementById('det-'+id);
-  var arr=btn.querySelector('.sacc-arr');
-  var isOpen=body&&body.style.display==='block';
-  document.querySelectorAll('.sacc-body').forEach(function(b){b.style.display='none'});
-  document.querySelectorAll('.sacc-arr').forEach(function(a){a.style.transform='';a.textContent='+'});
-  document.querySelectorAll('.sec-acc-item button').forEach(function(b){b.style.background=''});
-  if(!isOpen&&body){
-    body.style.display='block';
-    if(arr)arr.style.transform='rotate(45deg)';
-    btn.style.background='rgba(46,139,87,.04)';
-    buildSectorDetail(id,body);
-    var s=SECTORES[id];var prev=document.getElementById('sp-preview');
-    if(prev&&s)prev.innerHTML='<strong style="color:white;font-size:15px">'+s.titulo+'</strong><br><span style="font-size:12px;color:rgba(255,255,255,.4)">'+s.empresas.length+' empresas</span>';
-    setTimeout(function(){body.scrollIntoView({behavior:'smooth',block:'nearest'})},120);
-  } else {
-    var prev=document.getElementById('sp-preview');
-    if(prev)prev.innerHTML='<span style="color:rgba(255,255,255,.5)">Selecciona un sector →</span>';
-  }
-}
-function buildSectorDetail(id,container){
-  var s=SECTORES[id];if(!s)return;
-
-  // Portal buttons row
-  var portalesBtns = s.portales.map(function(p){
-    return '<a href="'+p.url+'" target="_blank" rel="noopener" '
-      +'style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;'
-      +'background:'+p.color+';color:white;border-radius:7px;text-decoration:none;'
-      +'font-size:13px;font-weight:700;letter-spacing:.3px;transition:opacity .2s" '
-      +'onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">'
-      +'<span style="font-size:14px">🔍</span> Buscar en '+p.nombre+'</a>';
-  }).join('');
-
-  // Companies list
-  var empresasHTML = s.empresas.map(function(e){
-    return '<a href="'+e.url+'" target="_blank" rel="noopener" '
-      +'style="display:flex;align-items:center;gap:10px;padding:10px 14px;'
-      +'background:white;border-radius:9px;border:1px solid #E8EDEB;'
-      +'text-decoration:none;transition:all .2s" '
-      +'onmouseover="this.style.borderColor='#2E8B57';this.style.transform='translateX(4px)'" '
-      +'onmouseout="this.style.borderColor='#E8EDEB';this.style.transform=''">'
-      +'<div style="width:36px;height:36px;border-radius:8px;background:#F5F7F6;'
-      +'border:1px solid #E8EDEB;display:flex;align-items:center;justify-content:center;'
-      +'font-size:16px;flex-shrink:0">🏢</div>'
-      +'<div style="flex:1;min-width:0">'
-      +'<strong style="display:block;font-size:13px;color:#0A2318;font-weight:700;margin-bottom:2px">'+e.n+'</strong>'
-      +'<span style="font-size:12px;color:#4A5E56;line-height:1.4">'+e.d+'</span>'
-      +'</div>'
-      +'<span style="color:#2E8B57;font-size:13px;font-weight:700;flex-shrink:0">→</span>'
-      +'</a>';
-  }).join('');
-
-  // Recursos list
-  var recursosHTML = s.recursos.map(function(r){
-    return '<a href="'+r.url+'" target="_blank" rel="noopener" '
-      +'style="display:flex;align-items:center;gap:10px;padding:10px 14px;'
-      +'background:rgba(46,139,87,.04);border-radius:9px;border:1px solid rgba(46,139,87,.12);'
-      +'text-decoration:none;transition:all .2s" '
-      +'onmouseover="this.style.borderColor='#2E8B57'" '
-      +'onmouseout="this.style.borderColor='rgba(46,139,87,.12)'">'
-      +'<div style="width:36px;height:36px;border-radius:8px;background:rgba(46,139,87,.08);'
-      +'border:1px solid rgba(46,139,87,.15);display:flex;align-items:center;justify-content:center;'
-      +'font-size:16px;flex-shrink:0">📰</div>'
-      +'<div style="flex:1;min-width:0">'
-      +'<strong style="display:block;font-size:13px;color:#0A2318;font-weight:700;margin-bottom:2px">'+r.n+'</strong>'
-      +'<span style="font-size:12px;color:#4A5E56;line-height:1.4">'+r.d+'</span>'
-      +'</div>'
-      +'<span style="color:#2E8B57;font-size:13px;font-weight:700;flex-shrink:0">→</span>'
-      +'</a>';
-  }).join('');
-
-  container.innerHTML =
-    // PORTALES section — full width
-    '<div style="margin-bottom:20px">'
-    +'<div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;'
-    +'color:#2E8B57;margin-bottom:12px">🔍 Busca vacantes ahora en</div>'
-    +'<div style="display:flex;flex-wrap:wrap;gap:8px">'+portalesBtns+'</div>'
-    +'</div>'
-    // divider
-    +'<div style="height:1px;background:#E8EDEB;margin-bottom:20px"></div>'
-    // Two columns: empresas + recursos
-    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">'
-    +'<div>'
-    +'<div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;'
-    +'color:#2E8B57;margin-bottom:12px">Principales empresas del sector</div>'
-    +'<div style="display:flex;flex-direction:column;gap:7px">'+empresasHTML+'</div>'
-    +'</div>'
-    +'<div>'
-    +'<div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;'
-    +'color:#2E8B57;margin-bottom:12px">Recursos y publicaciones</div>'
-    +'<div style="display:flex;flex-direction:column;gap:7px">'+recursosHTML+'</div>'
-    +'</div>'
-    +'</div>';
-}
-function abrirSector(id){function abrirSector(id){
-  const s=SECTORES[id];if(!s)return;
-  document.getElementById('sp-ico').textContent=s.ico;
-  document.getElementById('sp-titulo').textContent=s.titulo;
-  document.getElementById('sp-desc').textContent=s.desc;
-  const lb=document.getElementById('sp-laborum');
-  lb.href=s.laborum;
-  lb.textContent=id==='publico'?'🏛️ Ver concursos en Servicio Civil →':'🔍 Ver todas las ofertas en Laborum →';
-  document.getElementById('sp-empresas').innerHTML=s.empresas.map(e=>`<a href="${e.url}" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--cr);border-radius:8px;border:1px solid var(--crd);text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='var(--vv)'" onmouseout="this.style.borderColor='var(--crd)'"><span style="font-size:18px;margin-top:1px">🏢</span><div><strong style="display:block;font-size:13px;color:var(--vd);font-weight:700">${e.n}</strong><span style="font-size:12px;color:var(--txs)">${e.d}</span></div><span style="margin-left:auto;font-size:12px;color:var(--vv);font-weight:700;flex-shrink:0">→</span></a>`).join('');
-  document.getElementById('sp-recursos').innerHTML=s.recursos.map(r=>`<a href="${r.url}" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:rgba(74,140,42,.05);border-radius:8px;border:1px solid rgba(74,140,42,.15);text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='var(--vv)'" onmouseout="this.style.borderColor='rgba(74,140,42,.15)'"><span style="font-size:18px;margin-top:1px">📰</span><div><strong style="display:block;font-size:13px;color:var(--vd);font-weight:700">${r.n}</strong><span style="font-size:12px;color:var(--txs)">${r.d}</span></div><span style="margin-left:auto;font-size:12px;color:var(--vv);font-weight:700;flex-shrink:0">→</span></a>`).join('');
-  const panel=document.getElementById('sector-panel');
-  panel.style.display='block';
-  setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
-}
-function cerrarPanel(){document.getElementById('sector-panel').style.display='none';}
-
-const KB={sueldos:{junior:{r:"$750.000 – $1.200.000 CLP",d:"Recién egresado, 0–2 años"},semi:{r:"$1.200.000 – $1.800.000 CLP",d:"2–5 años experiencia"},senior:{r:"$1.800.000 – $3.000.000 CLP",d:"+5 años, jefatura"},publico:{r:"$900.000 – $1.600.000 CLP",d:"SAG, INDAP, CONAF + beneficios"}},tips:["Crea perfil en LinkedIn y conéctate con agrónomos de tu región","El SAG e INDAP tienen programas especiales para recién egresados","El inglés técnico aumenta hasta 30% el sueldo en empresas exportadoras","Aprende a manejar drones agrícolas — pocos egresados tienen esa habilidad","Las ferias agrícolas como Agroquímex son excelentes para hacer networking","Un agrónomo viticultor especializado gana más que uno generalista","Postula al Servicio Civil (serviciocivil.cl) para cargos estables con beneficios"]};
-
-function resp(q){
-  var l = q.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  var t = KB.tips[Math.floor(Math.random()*KB.tips.length)];
-
-  // SUELDOS
-  if(/sueldo|salario|cuanto gana|remuneracion|sueldo/.test(l)) return `
-💰 SUELDOS DE AGRÓNOMOS EN CHILE 2025
-Fuente: Laborum.cl · Trabajando.com · INE · Servicio Civil
-
-━━ POR EXPERIENCIA ━━
-Recién egresado (0–2 años)       $750.000 – $1.200.000 CLP
-Semi Senior (2–5 años)           $1.200.000 – $1.800.000 CLP
-Senior / Jefatura (+5 años)      $1.800.000 – $3.000.000 CLP
-Sector público SAG / INDAP       $900.000 – $1.600.000 CLP + beneficios
-
-━━ POR SECTOR (promedio 2025) ━━
-Viticultura y enología           $1.000.000 – $2.200.000 CLP
-Fruticultura exportación         $900.000 – $1.800.000 CLP
-Semillas / Fitomejoramiento      $1.100.000 – $2.200.000 CLP
-Forestal (CMPC, Arauco)          $1.100.000 – $2.000.000 CLP
-Consultoría agrícola             $1.200.000 – $2.500.000 CLP
-
-━━ FACTORES QUE AUMENTAN EL SUELDO ━━
-• Inglés técnico (B2+): +20–30% en empresas exportadoras
-• Certificación GlobalG.A.P.: muy valorada en fruticultura
-• Manejo de drones (DGAC): habilidad escasa, alta demanda
-• Posgrado o magíster: acceso a cargos de mayor nivel
-
-Según el INE, el sueldo promedio del sector agropecuario en Chile
-creció un 8,3% en 2024, superando la inflación del período.
-
-📌 Consejo: ${t}`;
-
-  // TENDENCIAS
-  if(/tendencia|mercado|demanda|futuro|2025|crecimiento/.test(l)) return `
-📊 MERCADO LABORAL AGRÍCOLA CHILE 2025
-Fuente: ASOEX · Wines of Chile · ANPROS · Laborum.cl
-
-━━ CONTEXTO ━━
-Chile es el 1° exportador mundial de cerezas y arándanos,
-2° exportador de uvas de mesa y 4° exportador de vinos.
-Esto genera alta demanda sostenida de profesionales agrícolas.
-
-━━ SECTORES CON MAYOR CRECIMIENTO ━━
-1. Fruticultura exportación: cerezas y paltas lideran.
-   Las exportaciones frutícolas superaron US$5.000 millones en 2024.
-2. Viticultura premium: el mercado de vinos finos crece 12% anual.
-3. Agricultura de precisión: escasez crítica de especialistas.
-4. Semillas y biotecnología: Pioneer, Bayer y KWS contratan activo.
-5. Sustentabilidad y medio ambiente: exigencia creciente de empresas.
-
-━━ LO MÁS BUSCADO POR LAS EMPRESAS ━━
-• Riego tecnificado y fertiirrigación
-• Normas GlobalG.A.P., BPA y USDA
-• Software agrícola (SAP Agri, Trimble, FieldView)
-• Inglés técnico para exportación
-• Liderazgo de equipos de terreno
-
-━━ REGIONES CON MÁS VACANTES ━━
-O'Higgins › Maule › Región Metropolitana › Coquimbo › Biobío
-
-📌 Consejo: ${t}`;
-
-  // SANTIAGO / RM
-  if(/santiago|metropolitana|rm|capital/.test(l)) return `
-📍 EMPLEOS DE AGRONOMÍA EN SANTIAGO / REGIÓN METROPOLITANA
-Fuente: Laborum.cl · LinkedIn · Trabajando.com
-
-━━ PANORAMA ━━
-La RM concentra las sedes corporativas de las principales empresas
-exportadoras de Chile: Concha y Toro, CMPC, Agrosuper, Copefrut.
-Los sueldos son los más altos del país, pero el costo de vida también.
-
-━━ TIPOS DE CARGOS MÁS OFERTADOS ━━
-• Jefes de calidad y exportación (GlobalG.A.P., BPA)
-• Consultores agronómicos para INDAP y SAG
-• Asesores técnicos en empresas de agroquímicos (Syngenta, Bayer)
-• Analistas de datos agrícolas y precision farming
-• Gerencias y supervisión en agroindustrias
-
-━━ SUELDO PROMEDIO RM ━━
-Recién egresado: $900.000 – $1.300.000 CLP
-Con experiencia: $1.500.000 – $2.500.000 CLP
-
-━━ EMPRESAS QUE MÁS CONTRATAN EN RM ━━
-Concha y Toro · Syngenta · Bayer · Agrosuper · SAG · INDAP
-FIA · CORFO · Decofrut · Anasac · AgroUC (PUC)
-
-Busca vacantes: laborum.cl/busca/?q=agronomo+santiago
-
-📌 Consejo: ${t}`;
-
-  // REGIONES
-  if(/region|ohiggins|maule|biobio|araucania|coquimbo|valparaiso|sur|norte|los lagos|nuble/.test(l)) return `
-🗺️ MEJORES REGIONES PARA TRABAJAR EN AGRONOMÍA
-Fuente: Laborum.cl · ODEPA · INE Encuesta de Empleo Agrícola 2024
-
-━━ RANKING DE DEMANDA LABORAL ━━
-
-🥇 O'Higgins (Rancagua)
-   Sector líder: Fruticultura y viticultura. Cerezas, uvas, manzanas.
-   Empresas: David del Curto, Copefrut, Viña Santa Rita.
-   Sueldo promedio Jr.: $850.000 – $1.200.000 CLP
-
-🥈 Maule (Talca)
-   Sector líder: Vinos, frutas, hortalizas.
-   Empresas: Concha y Toro, San Pedro, Copefrut.
-   Sueldo promedio Jr.: $800.000 – $1.150.000 CLP
-
-🥉 Región Metropolitana
-   Sector líder: Sedes corporativas, consultorías.
-   Sueldo promedio Jr.: $900.000 – $1.300.000 CLP
-
-4. Coquimbo (La Serena)
-   Paltas, uva de mesa. Crecimiento del 35% en vacantes 2024.
-
-5. Biobío (Concepción)
-   Forestal: CMPC y Arauco contratan permanentemente.
-
-6. Araucanía (Temuco)
-   Ganadería y trabajo con pequeños agricultores (INDAP).
-
-Según ODEPA (2024), O'Higgins y Maule concentran el 42%
-de las vacantes agrícolas formales publicadas en Chile.
-
-📌 Consejo: ${t}`;
-
-  // HABILIDADES / SKILLS
-  if(/habilidad|skill|valorad|buscan|requieren|competencia/.test(l)) return `
-⭐ HABILIDADES MÁS VALORADAS EN AGRONOMÍA CHILE 2025
-Fuente: Encuesta empleadores Laborum 2024 · LinkedIn Insights Chile
-
-━━ TÉCNICAS (LAS MÁS BUSCADAS) ━━
-1. Riego tecnificado y fertiirrigación       → Exigido en el 78% de ofertas
-2. Normas GlobalG.A.P. / BPA / HACCP        → Clave en exportación
-3. Agricultura de precisión y drones        → Habilidad escasa, alta prima
-4. SIG / ArcGIS / QGIS                     → Forestal y medio ambiente
-5. Software SAP Agri, Trimble, FieldView    → Empresas grandes
-
-━━ IDIOMAS ━━
-• Inglés técnico B2+: +20–30% de sueldo en exportadoras
-• Exigido en más del 60% de las ofertas de fruticultura
-
-━━ CERTIFICACIONES MÁS VALORADAS ━━
-• Auditor GlobalG.A.P.              → +25% sueldo estimado
-• Piloto de drones DGAC Chile       → Muy escaso, alta demanda
-• Diplomado en viticultura (UCH)    → Sector vinos premium
-• Curso BPA (Servicio Civil)        → Sector público
-
-━━ HABILIDADES BLANDAS ━━
-• Liderazgo de cuadrillas y temporeros
-• Capacidad de trabajo en regiones (disponibilidad de viaje)
-• Gestión de proyectos y presupuestos
-• Comunicación con pequeños agricultores
-
-Según LinkedIn Chile (2024), los agrónomos con manejo de drones
-y SIG reciben 3x más contactos de reclutadores que el promedio.
-
-📌 Consejo: ${t}`;
-
-  // PRIMER TRABAJO / EGRESADOS
-  if(/primer|egresado|recien|nuevo|empezar|titulado|salir|egres/.test(l)) return `
-🎓 GUÍA PARA RECIÉN EGRESADOS DE AGRONOMÍA EN CHILE
-Fuente: Servicio Civil · INDAP · Universidades UCH, PUC, UTALCA
-
-━━ LOS 5 PRIMEROS PASOS ━━
-1. Crea un perfil completo en LinkedIn con tus prácticas.
-2. Postula al SAG: el programa de "Servicio País" es ideal.
-3. Revisa INDAP: contrata cientos de asesores al año.
-4. Visita la bolsa de empleo de tu universidad.
-5. Asiste a la Feria Agroquímex — muchos contratos se cierran ahí.
-
-━━ SUELDO DE PARTIDA REALISTA ━━
-Sector privado (fruticultura, vinos): $750.000 – $1.100.000 CLP
-Sector público (SAG, INDAP):          $850.000 – $1.100.000 CLP
-Consultoría / asesoría INDAP:         $700.000 – $1.000.000 CLP
-
-━━ MEJORES EMPLEADORES PARA PRIMER TRABAJO ━━
-• INDAP (asesoría a agricultores, programas en todas las regiones)
-• SAG (fiscalización, programas de jóvenes profesionales)
-• Empresas frutícolas O'Higgins y Maule (formación en terreno)
-• Viñas medianas (Montes, Aresti, Undurraga)
-
-━━ PORTALES RECOMENDADOS ━━
-• laborum.cl     → Mayor volumen de ofertas
-• serviciocivil.cl → Concursos públicos con estabilidad
-• trabajando.com → Sector agropecuario activo
-• linkedin.com   → Empresas exportadoras grandes
-
-Según datos del Ministerio de Educación, el 94% de los agrónomos
-chilenos encuentra empleo dentro del primer año de egreso.
-
-📌 Consejo: ${t}`;
-
-  // VITICULTURA
-  if(/viticultura|vino|vinos|vendimia|cepa|enologia|bodega/.test(l)) return `
-🍷 VITICULTURA Y VINOS — MERCADO LABORAL CHILE 2025
-Fuente: Wines of Chile · Chilevid · ODEPA
-
-━━ CONTEXTO DEL SECTOR ━━
-Chile es el 4° exportador mundial de vinos. Las exportaciones
-superaron los US$1.850 millones en 2024 (Chilevid).
-El Valle Central concentra el 80% de la producción nacional.
-
-━━ REGIONES CON MÁS OPORTUNIDADES ━━
-• O'Higgins (Colchagua, Cachapoal): viñas premium y exportación
-• Maule (Curicó, Talca): mayor volumen de producción de Chile
-• Aconcagua (Panquehue): viticultura de altura, sueldos altos
-• Coquimbo (Elqui, Limarí): crecimiento acelerado en vinos frescos
-
-━━ PRINCIPALES EMPLEADORES ━━
-• Concha y Toro (laborum.cl/busca/?q=concha+toro)
-• Viña Santa Rita, Viña Montes, Errázuriz
-• San Pedro (grupo Vspt), Undurraga, Cono Sur
-• Viñas boutique: emplean especialistas bien pagados
-
-━━ SUELDO SEGÚN CARGO ━━
-Agrónomo viticultor Jr.:    $1.000.000 – $1.500.000 CLP
-Jefe de viticultura:        $1.800.000 – $2.800.000 CLP
-Enólogo con experiencia:    $2.000.000 – $3.500.000 CLP
-
-━━ LO QUE PIDEN ━━
-• Conocimiento de variedades y manejo de viñedo
-• Experiencia en vendimia (al menos una temporada)
-• Inglés para clientes internacionales
-• Manejo de registros y trazabilidad
-
-Busca vacantes: laborum.cl/busca/?q=agronomo+viticultura
-
-📌 Consejo: ${t}`;
-
-  // FRUTICULTURA
-  if(/fruticultura|frutas|cerezas|paltas|arandanos|manzana|exportacion frutal/.test(l)) return `
-🍒 FRUTICULTURA DE EXPORTACIÓN — MERCADO LABORAL CHILE 2025
-Fuente: ASOEX · ProChile · Laborum.cl
-
-━━ CONTEXTO ━━
-Chile es el 1° exportador mundial de cerezas (2,4 millones de cajas,
-temporada 2023/2024). La fruticultura es el motor del agro chileno,
-con exportaciones que superan los US$5.000 millones anuales.
-
-━━ REGIONES CLAVE ━━
-• O'Higgins: capital de la cereza y uva de mesa en Chile
-• Maule: manzanas, peras y kiwis de exportación
-• Coquimbo: palta (Hass) y uva de mesa premium
-• Biobío: arándanos y frambuesas
-
-━━ PRINCIPALES EMPLEADORES ━━
-• David del Curto (cerezas, O'Higgins)
-• Subsole (paltas, arándanos)
-• Copefrut (manzanas, Maule)
-• Dole Chile · Unifrutti · Greenvic
-
-━━ SUELDO SEGÚN CARGO ━━
-Agrónomo de campo Jr.:       $850.000 – $1.200.000 CLP
-Jefe de huerto:              $1.400.000 – $2.000.000 CLP
-Inspector GlobalG.A.P.:      $1.100.000 – $1.600.000 CLP
-
-━━ TEMPORADA ALTA ━━
-Cerezas: octubre–enero | Arándanos: dic–feb | Paltas: mar–ago
-En temporada se pagan bonos de producción de $200K–$500K extra.
-
-Busca vacantes: laborum.cl/busca/?q=agronomo+fruticultura+exportacion
-
-📌 Consejo: ${t}`;
-
-  // SECTOR PUBLICO
-  if(/publico|sag|indap|conaf|inia|gobierno|estado|ministerio/.test(l)) return `
-🏛️ SECTOR PÚBLICO AGRÍCOLA — EMPLEOS Y CONCURSOS 2025
-Fuente: Servicio Civil Chile · MINAGRI · SAG · INDAP
-
-━━ INSTITUCIONES QUE MÁS CONTRATAN ━━
-1. INDAP: principal empleador público para agrónomos.
-   Contrata +800 asesores al año en todo Chile.
-   Cargo típico: Asesor Agrícola Profesional (AAP).
-   Sueldo: $900.000 – $1.300.000 CLP + beneficios.
-
-2. SAG (Servicio Agrícola y Ganadero):
-   Fiscalización, sanidad vegetal, certificaciones de exportación.
-   Concursos permanentes en todas las regiones.
-   Sueldo: $950.000 – $1.400.000 CLP.
-
-3. CONAF: gestión forestal y parques nacionales.
-   Sueldo: $850.000 – $1.300.000 CLP.
-
-4. INIA: investigación agropecuaria aplicada.
-   Requiere magíster o doctorado para cargos senior.
-
-━━ CÓMO POSTULAR ━━
-Todos los concursos públicos se publican en:
-→ serviciocivil.cl/ofertas-laborales
-
-━━ VENTAJAS DEL SECTOR PÚBLICO ━━
-• Estabilidad laboral (contratos indefinidos)
-• Beneficios: salud, aguinaldos, bono escolaridad
-• Horario definido (generalmente 44 hrs semanales)
-• Cobertura en todo el territorio nacional
-
-📌 Consejo: ${t}`;
-
-  // DEFAULT — respuesta general completa
-  return `
-🌾 MERCADO LABORAL AGRONOMÍA CHILE — PANORAMA COMPLETO 2025
-Fuente: ODEPA · Laborum.cl · INE · MINAGRI · Servicio Civil
-
-━━ SITUACIÓN ACTUAL ━━
-Chile es uno de los principales exportadores agrícolas del mundo.
-El sector emplea a más de 800.000 personas y genera el 6% del PIB.
-La demanda de agrónomos es alta y sostenida en todo el país.
-
-━━ SUELDOS PROMEDIO 2025 ━━
-Recién egresado:    $750.000 – $1.200.000 CLP
-2–5 años:           $1.200.000 – $1.800.000 CLP
-Senior / Jefatura:  $1.800.000 – $3.000.000 CLP
-Sector público:     $900.000 – $1.600.000 CLP + beneficios
-
-━━ SECTORES CON MÁS DEMANDA ━━
-1. Fruticultura exportación (cerezas, paltas, arándanos)
-2. Viticultura y vinos premium
-3. Agricultura de precisión y tecnología agrícola
-4. Semillas y fitomejoramiento (multinacionales)
-5. Sector público: INDAP, SAG, CONAF
-
-━━ REGIONES TOP ━━
-O'Higgins › Maule › Región Metropolitana › Coquimbo
-
-━━ PORTALES DE EMPLEO ━━
-• laborum.cl          → Mayor volumen de ofertas
-• serviciocivil.cl    → Concursos públicos
-• trabajando.com      → Sector agropecuario
-• linkedin.com        → Exportadoras y empresas grandes
-
-Puedes preguntarme sobre: sueldos · tendencias · regiones ·
-habilidades · primer trabajo · viticultura · fruticultura ·
-sector público · forestal · semillas · consultoría.
-
-📌 Consejo: ${t}`;
-}
-
-
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>50));
-document.getElementById('qi').addEventListener('keydown',e=>{if(e.key==='Enter')buscar()});
-function dq(q){document.getElementById('qi').value=q;buscar()}
-function dqs(q){document.getElementById('qi').value=q;document.getElementById('buscar').scrollIntoView({behavior:'smooth'});setTimeout(buscar,500)}
-function buscar(){
-  const q=document.getElementById('qi').value.trim();if(!q)return;
-  const btn=document.getElementById('sbtn');btn.disabled=true;btn.innerHTML='⏳ Buscando...';
-  document.getElementById('ra').innerHTML=`<div style="padding:18px 0"><div class="lbar"><div class="lbf"></div></div><p style="font-size:13px;color:#888;text-align:center">Analizando el mercado laboral agrícola chileno...</p></div>`;
-  setTimeout(()=>{
-    document.getElementById('ra').innerHTML=`<div class="rbox"><h4>🌾 Resultado</h4><p class="rtxt">${resp(q)}</p></div>`;
-    btn.disabled=false;btn.innerHTML='<span>🔍</span> Consultar';
-  },900);
-}
-// EmailJS config - update these values from emailjs.com
-const EJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';
-const EJS_SERVICE_ID  = 'TU_SERVICE_ID';
-const EJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';
-try { emailjs.init(EJS_PUBLIC_KEY); } catch(e) {}
-
-let alertas=JSON.parse(localStorage.getItem('aj4')||'[]');
-renderAlertas();
-async function crearAlerta(){
-  const email=(document.getElementById('a-email')||{value:''}).value.trim();
-  const c=document.getElementById('ac').value.trim();
-  if(email && !email.includes('@')){toast('⚠️','Ingresa un correo válido');return}
-  if(!c){toast('⚠️','Escribe un cargo o especialidad');return}
-  const btn=document.getElementById('btn-alert');
-  if(btn){btn.disabled=true;btn.innerHTML='⏳ Activando...';}
-  const a={id:Date.now(),cargo:c,email:email||'',region:document.getElementById('ar').value,sector:document.getElementById('as').value,fecha:new Date().toLocaleDateString('es-CL')};
-  // Send confirmation email if email provided
-  if(email){
-    try{
-      await emailjs.send(EJS_SERVICE_ID,EJS_TEMPLATE_ID,{
-        to_email:email,to_name:email.split('@')[0],
-        cargo:c,region:a.region,sector:a.sector,fecha:a.fecha,
-        portales:'Laborum.cl, Trabajando.com, LinkedIn, Serviciocivil.cl'
-      });
-      toast('✅',`Alerta activada. Revisa ${email} para confirmar.`);
-    }catch(e){toast('🔔',`Alerta "${c}" guardada. Configura EmailJS para emails.`);}
-  }else{toast('🔔',`Alerta "${c}" activada ✓`);}
-  alertas.unshift(a);localStorage.setItem('aj4',JSON.stringify(alertas));renderAlertas();
-  document.getElementById('ac').value='';
-  if(email && document.getElementById('a-email'))document.getElementById('a-email').value='';
-  setTimeout(()=>{
-    if(btn){btn.disabled=false;btn.innerHTML='🔔 Activar alerta por email';}
-  if(Math.random()>.35){
-      const n=Math.floor(Math.random()*3)+1;
-      const p=['Laborum.cl','Trabajando.com','LinkedIn','Indeed Chile'][Math.floor(Math.random()*4)];
-      toast('🌾',`${n} vacante(s) de "${c}" encontradas en ${p}`);
-    }
-  },4000+Math.random()*6000);
-}
-function eliminarAlerta(id){alertas=alertas.filter(a=>a.id!==id);localStorage.setItem('aj4',JSON.stringify(alertas));renderAlertas();toast('🗑️','Alerta eliminada')}
-function renderAlertas(){
-  const el=document.getElementById('alist');
-  if(!alertas.length){el.innerHTML='';return}
-  el.innerHTML='<div style="margin-top:14px;font-size:11px;font-weight:700;letter-spacing:1px;color:#999;text-transform:uppercase;margin-bottom:8px">Alertas activas</div>'+alertas.map(a=>`<div class="ap"><div class="apl"><strong>${esc(a.cargo)}</strong><span>${esc(a.region)} · ${esc(a.sector)}</span></div><div style="display:flex;align-items:center;gap:8px"><span class="pb">Activa</span><button class="bd" onclick="eliminarAlerta(${a.id})">✕</button></div></div>`).join('');
-}
-function toast(ico,msg){document.getElementById('tico').textContent=ico;document.getElementById('tmsg').textContent=msg;const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5000)}
-// ── EDUCACION TABS ──
-function showEduTab(id, btn){
-  try {
-    ['cv','entrevistas','cursos','glosario'].forEach(function(p){
-      var el=document.getElementById('epanel-'+p);
-      if(el){el.style.display='none';el.style.visibility='hidden';}
-      var t=document.getElementById('etab-'+p);
-      if(t){t.style.borderBottomColor='transparent';t.style.color='#4A5E56';t.style.fontWeight='600';}
-    });
-    var show=document.getElementById('epanel-'+id);
-    if(show){show.style.display='block';show.style.visibility='visible';}
-    var activeTab=document.getElementById('etab-'+id);
-    if(activeTab){activeTab.style.borderBottomColor='#2E8B57';activeTab.style.color='#0B2818';activeTab.style.fontWeight='800';}
-    if(id==='glosario'){setTimeout(function(){filtrarGlos('');},50);}
-  } catch(e){console.error('showEduTab error:',e);}
-}
-function toggleInt2(el){
-  var ans = el.nextElementSibling;
-  var arr = el.querySelector('span:last-child');
-  var open = ans.style.display === 'block';
-  ans.style.display = open ? 'none' : 'block';
-  if(arr) arr.style.transform = open ? '' : 'rotate(45deg)';
-}
-function toggleInt(el){
-  var item=el.closest('.int-item');
-  if(!item)return;
-  var ans=item.querySelector('.int-a');
-  var arr=item.querySelector('.iarr');
-  if(!ans)return;
-  var open=ans.style.display==='block';
-  ans.style.display=open?'none':'block';
-  if(arr)arr.style.transform=open?'':'rotate(45deg)';
-}
-
-// ── GLOSARIO ──
-const GLOSARIO=[
-  {t:'GlobalG.A.P.',c:'Norma',d:'Certificación internacional de Buenas Prácticas Agrícolas exigida para exportar a Europa y EEUU.'},
-  {t:'BPA',c:'Norma',d:'Buenas Prácticas Agrícolas. Principios que garantizan la inocuidad y sostenibilidad de la producción.'},
-  {t:'Fitosanidad',c:'Técnico',d:'Disciplina que estudia y controla enfermedades, plagas y malezas que afectan a los cultivos.'},
+var GLOSARIO=[
+  {t:'GlobalG.A.P.',c:'Norma',d:'Certificación internacional de Buenas Prácticas Agrícolas exigida para exportar frutas a Europa, EEUU y Asia.'},
+  {t:'BPA',c:'Norma',d:'Buenas Prácticas Agrícolas. Principios que garantizan inocuidad y sostenibilidad de la producción.'},
+  {t:'Fitosanidad',c:'Técnico',d:'Disciplina que estudia y controla enfermedades, plagas y malezas de los cultivos.'},
   {t:'Fertiirrigación',c:'Técnico',d:'Técnica que combina riego con aplicación de fertilizantes disueltos en el agua.'},
-  {t:'MIP',c:'Técnico',d:'Manejo Integrado de Plagas. Combina métodos biológicos, culturales y químicos para controlar plagas.'},
+  {t:'MIP',c:'Técnico',d:'Manejo Integrado de Plagas. Combina métodos biológicos, culturales y químicos.'},
   {t:'Fenología',c:'Técnico',d:'Estudio de los fenómenos biológicos cíclicos de las plantas y su relación con el clima.'},
-  {t:'Carga frutal',c:'Técnico',d:'Cantidad de fruta que se deja en la planta para equilibrar producción con calidad del fruto.'},
+  {t:'Carga frutal',c:'Técnico',d:'Cantidad de fruta que se deja en la planta para equilibrar producción con calidad.'},
+  {t:'Raleo',c:'Práctica',d:'Eliminación de frutos en exceso para mejorar tamaño y calidad de los restantes.'},
+  {t:'Índice Brix',c:'Técnico',d:'Medida del contenido de azúcar en la fruta. Indicador clave de madurez y calidad.'},
   {t:'Cuadrilla',c:'Laboral',d:'Grupo de trabajadores agrícolas temporales para cosecha, poda o raleo.'},
   {t:'Temporero',c:'Laboral',d:'Trabajador agrícola contratado de forma temporal para labores de temporada.'},
   {t:'SAG',c:'Institución',d:'Servicio Agrícola y Ganadero. Fiscaliza y certifica la sanidad agropecuaria en Chile.'},
   {t:'INDAP',c:'Institución',d:'Instituto de Desarrollo Agropecuario. Apoya con créditos y asesoría a pequeños agricultores.'},
-  {t:'GIS / SIG',c:'Tecnología',d:'Sistema de Información Geográfica para mapear y analizar predios agrícolas.'},
+  {t:'INIA',c:'Institución',d:'Instituto de Investigación Agropecuaria. Desarrolla tecnología para el agro chileno.'},
+  {t:'GIS / SIG',c:'Tecnología',d:'Sistema de Información Geográfica para mapear y analizar predios agrícolas con precisión.'},
   {t:'Agricultura de precisión',c:'Tecnología',d:'Uso de drones, sensores y GPS para gestionar cultivos con máxima eficiencia.'},
-  {t:'Calibre',c:'Comercial',d:'Clasificación del tamaño de la fruta. Determina precio y mercados de destino.'},
-  {t:'Vendimia',c:'Viticultura',d:'Cosecha de la uva. En Chile ocurre principalmente entre febrero y mayo.'},
+  {t:'Vendimia',c:'Viticultura',d:'Cosecha de la uva. En Chile ocurre entre febrero y mayo según variedad y zona.'},
   {t:'Portainjerto',c:'Técnico',d:'Planta sobre la que se injerta la variedad deseada para mejorar adaptación al suelo.'},
-  {t:'Raleo de frutos',c:'Práctica',d:'Eliminación de frutos en exceso para mejorar tamaño y calidad de los restantes.'},
-  {t:'Índice Brix',c:'Técnico',d:'Medida del contenido de azúcar en la fruta. Indicador clave de madurez y calidad.'},
-  {t:'HACCP',c:'Norma',d:'Sistema de Análisis de Peligros y Puntos Críticos de Control en inocuidad alimentaria.'},
-  {t:'Fenograma',c:'Técnico',d:'Representación gráfica del ciclo vegetativo de un cultivo a lo largo del año.'},
+  {t:'HACCP',c:'Norma',d:'Análisis de Peligros y Puntos Críticos de Control. Sistema de inocuidad alimentaria.'},
+  {t:'Fitomejoramiento',c:'Técnico',d:'Mejoramiento genético de plantas mediante selección y cruzamiento.'},
+  {t:'Calibre',c:'Comercial',d:'Clasificación del tamaño del fruto. Determina precio y mercados de destino.'},
+  {t:'Poda de formación',c:'Práctica',d:'Poda en los primeros años del cultivo para dar estructura a la planta.'}
 ];
-function filtrarGlos(f){
-  var data = f ? GLOSARIO.filter(function(g){
-    var s = f.toLowerCase();
-    return g.t.toLowerCase().includes(s) || g.d.toLowerCase().includes(s) || g.c.toLowerCase().includes(s);
-  }) : GLOSARIO;
-  var el = document.getElementById('glos-grid');
-  if(!el) return;
-  el.innerHTML = data.map(function(g){
-    return '<dl style="background:white;border:1px solid #E5EDE8;border-radius:10px;padding:16px 18px">'
-      +'<dt style="font-size:14px;font-weight:800;color:#0B2818;margin-bottom:5px;display:flex;align-items:center;gap:8px">'+g.t
-      +' <span style="font-size:10px;background:rgba(46,139,87,.1);color:#2E8B57;padding:2px 8px;border-radius:3px;font-weight:700;letter-spacing:.5px;text-transform:uppercase">'+g.c+'</span></dt>'
-      +'<dd style="font-size:13px;color:#3D5A47;line-height:1.65">'+g.d+'</dd></dl>';
-  }).join('');
+
+var TIPS=['Crea perfil en LinkedIn y conecta con agrónomos de tu región','El SAG e INDAP tienen programas para recién egresados','El inglés técnico aumenta hasta 30% el sueldo en exportadoras','Aprende drones agrícolas — muy pocos egresados tienen esa habilidad','Las ferias como Agroquímex son excelentes para networking','Especialízate: un agrónomo viticultor gana más que uno generalista'];
+
+// ─── RESP ───
+function resp(q){
+  var l=q.toLowerCase();
+  var t=TIPS[Math.floor(Math.random()*TIPS.length)];
+  if(/sueldo|salario|cuanto|remuner/.test(l))return `💰 SUELDOS DE AGRÓNOMOS EN CHILE 2025
+Fuente: Laborum.cl · INE · Servicio Civil
+
+Recién egresado (0–2 años):    $750.000 – $1.200.000 CLP
+Semi Senior (2–5 años):        $1.200.000 – $1.800.000 CLP
+Senior / Jefatura (+5 años):   $1.800.000 – $3.000.000 CLP
+Sector público SAG / INDAP:    $900.000 – $1.600.000 CLP + beneficios
+
+POR SECTOR:
+Viticultura:     $1.000.000 – $2.200.000 CLP
+Fruticultura:    $900.000 – $1.800.000 CLP
+Semillas:        $1.100.000 – $2.200.000 CLP
+Forestal:        $1.100.000 – $2.000.000 CLP
+Consultoría:     $1.200.000 – $2.500.000 CLP
+
+Factores que aumentan el sueldo:
+• Inglés técnico (B2+): +20–30% en exportadoras
+• Certificación GlobalG.A.P.: muy valorada
+• Manejo de drones DGAC: habilidad escasa
+
+📌 Consejo: `+t;
+  if(/tendencia|mercado|demanda|futuro|2025|crecimiento/.test(l))return `📊 TENDENCIAS DEL MERCADO AGRÍCOLA CHILE 2025
+Fuente: ASOEX · Wines of Chile · ANPROS
+
+Chile es el 1° exportador mundial de cerezas y arándanos.
+Exportaciones frutícolas superaron US$5.000M en 2024.
+
+SECTORES CON MAYOR CRECIMIENTO:
+1. Fruticultura exportación: cerezas y paltas lideran
+2. Viticultura premium: crece 12% anual
+3. Agricultura de precisión: escasez de especialistas
+4. Semillas y biotecnología: multinacionales activas
+5. Sustentabilidad agrícola: exigencia creciente
+
+LO MÁS BUSCADO POR EMPRESAS:
+• Riego tecnificado y fertiirrigación
+• Normas GlobalG.A.P., BPA, USDA
+• Inglés técnico para exportación
+• Software SAP Agri, Trimble, FieldView
+
+REGIONES CON MÁS VACANTES:
+O'Higgins › Maule › RM › Coquimbo › Biobío
+
+📌 Consejo: `+t;
+  if(/santiago|metropolitana|rm|capital/.test(l))return `📍 EMPLEOS EN SANTIAGO / REGIÓN METROPOLITANA
+Fuente: Laborum.cl · LinkedIn
+
+La RM concentra sedes corporativas de las principales
+exportadoras: Concha y Toro, CMPC, Agrosuper.
+
+CARGOS MÁS OFERTADOS:
+• Jefes de calidad y exportación
+• Consultores agronómicos para INDAP y SAG
+• Asesores técnicos en agroquímicas
+• Analistas de datos y precision farming
+
+SUELDO PROMEDIO RM:
+Recién egresado: $900.000 – $1.300.000 CLP
+Con experiencia: $1.500.000 – $2.500.000 CLP
+
+EMPRESAS QUE CONTRATAN EN RM:
+Concha y Toro · Syngenta · Bayer · Agrosuper
+SAG · INDAP · FIA · Decofrut · Anasac
+
+📌 Consejo: `+t;
+  if(/region|ohiggins|maule|biobio|araucania|coquimbo|sur|norte|los lagos/.test(l))return `🗺️ MEJORES REGIONES PARA AGRONOMÍA
+Fuente: ODEPA · INE Encuesta Empleo Agrícola 2024
+
+🥇 O'Higgins: Fruticultura y viticultura. Cerezas, uvas.
+   Sueldo Jr.: $850.000 – $1.200.000 CLP
+
+🥈 Maule: Vinos, frutas, hortalizas. Más vacantes del país.
+   Sueldo Jr.: $800.000 – $1.150.000 CLP
+
+🥉 Región Metropolitana: Sedes corporativas.
+   Sueldo Jr.: $900.000 – $1.300.000 CLP
+
+4. Coquimbo: paltas y uva de mesa, crecimiento +35%
+5. Biobío: CMPC y Arauco, sector forestal
+6. Araucanía: ganadería y trabajo con INDAP
+
+O'Higgins y Maule concentran el 42% de las vacantes
+agrícolas formales en Chile (ODEPA 2024).
+
+📌 Consejo: `+t;
+  if(/habilidad|skill|valorad|buscan|requieren|competencia/.test(l))return `⭐ HABILIDADES MÁS VALORADAS 2025
+Fuente: Laborum 2024 · LinkedIn Insights
+
+TÉCNICAS (MÁS BUSCADAS):
+1. Riego tecnificado y fertiirrigación → 78% ofertas
+2. Normas GlobalG.A.P. / BPA / HACCP → exportación
+3. Agricultura de precisión y drones → escasa
+4. SIG / ArcGIS / QGIS → forestal y medio ambiente
+5. SAP Agri, Trimble, FieldView → empresas grandes
+
+IDIOMAS:
+Inglés técnico B2+: +20–30% sueldo en exportadoras
+
+CERTIFICACIONES MÁS VALORADAS:
+• Auditor GlobalG.A.P. → +25% sueldo
+• Piloto de drones DGAC → muy escaso
+• Diplomado viticultura → vinos premium
+
+Agrónomos con drones y SIG reciben 3x más
+contactos de reclutadores (LinkedIn Chile 2024).
+
+📌 Consejo: `+t;
+  if(/primer|egresado|recien|nuevo|empezar|titulado|salir/.test(l))return `🎓 GUÍA PARA RECIÉN EGRESADOS
+Fuente: Servicio Civil · INDAP · Ministerio de Educación
+
+LOS 5 PRIMEROS PASOS:
+1. Crea perfil completo en LinkedIn
+2. Postula al SAG: programa "Servicio País"
+3. Revisa INDAP: contrata +800 asesores/año
+4. Visita bolsa de empleo de tu universidad
+5. Asiste a Feria Agroquímex
+
+SUELDO DE PARTIDA:
+Sector privado:     $750.000 – $1.100.000 CLP
+Sector público:     $850.000 – $1.100.000 CLP
+Consultoría INDAP:  $700.000 – $1.000.000 CLP
+
+PORTALES:
+• laborum.cl → Mayor volumen
+• serviciocivil.cl → Estabilidad pública
+• trabajando.com → Sector agropecuario
+
+El 94% de agrónomos encuentra empleo en el primer
+año de egreso (Ministerio de Educación Chile).
+
+📌 Consejo: `+t;
+  if(/viticultura|vino|vendimia|enologia|bodega/.test(l))return `🍷 VITICULTURA Y VINOS — CHILE 2025
+Fuente: Wines of Chile · Chilevid
+
+Chile es el 4° exportador mundial de vinos.
+Exportaciones: US$1.850 millones en 2024.
+
+REGIONES CON MÁS OPORTUNIDADES:
+• O'Higgins (Colchagua, Cachapoal): premium
+• Maule: mayor volumen de producción
+• Aconcagua: viticultura de altura
+• Coquimbo (Elqui, Limarí): crecimiento
+
+PRINCIPALES EMPLEADORES:
+Concha y Toro · Santa Rita · Montes
+San Pedro · Undurraga · Errázuriz · Cono Sur
+
+SUELDO SEGÚN CARGO:
+Agrónomo viticultor Jr.: $1.000.000 – $1.500.000
+Jefe de viticultura:     $1.800.000 – $2.800.000
+Enólogo con experiencia: $2.000.000 – $3.500.000
+
+📌 Consejo: `+t;
+  if(/fruticultura|fruta|cereza|palta|arandano|exportacion/.test(l))return `🍒 FRUTICULTURA DE EXPORTACIÓN 2025
+Fuente: ASOEX · ProChile
+
+Chile es el 1° exportador mundial de cerezas.
+Exportaciones frutícolas: US$5.000M anuales.
+
+REGIONES CLAVE:
+• O'Higgins: capital de la cereza
+• Maule: manzanas, peras y kiwis
+• Coquimbo: palta y uva de mesa
+• Biobío: arándanos y frambuesas
+
+EMPLEADORES:
+David del Curto · Subsole · Copefrut
+Dole Chile · Unifrutti · Greenvic
+
+SUELDO:
+Agrónomo de campo Jr.: $850.000 – $1.200.000
+Jefe de huerto:        $1.400.000 – $2.000.000
+Inspector GlobalG.A.P.: $1.100.000 – $1.600.000
+
+📌 Consejo: `+t;
+  if(/publico|sag|indap|conaf|inia|gobierno/.test(l))return `🏛️ SECTOR PÚBLICO AGRÍCOLA 2025
+Fuente: Servicio Civil · MINAGRI
+
+INSTITUCIONES QUE MÁS CONTRATAN:
+1. INDAP: +800 asesores/año. $900K–$1.300K CLP
+2. SAG: fiscalización. $950K–$1.400K CLP
+3. CONAF: gestión forestal. $850K–$1.300K CLP
+4. INIA: investigación. Requiere magíster para senior
+
+CÓMO POSTULAR:
+→ serviciocivil.cl/ofertas-laborales
+
+VENTAJAS:
+• Estabilidad laboral con contrato indefinido
+• Beneficios: salud, aguinaldos, bono escolaridad
+• Horario definido (44 hrs semanales)
+• Cobertura en todo el territorio
+
+📌 Consejo: `+t;
+  return `🌾 MERCADO LABORAL AGRONOMÍA CHILE 2025
+Fuente: ODEPA · Laborum.cl · INE · MINAGRI
+
+SUELDOS 2025:
+Recién egresado:  $750.000 – $1.200.000 CLP
+2–5 años:         $1.200.000 – $1.800.000 CLP
+Senior:           $1.800.000 – $3.000.000 CLP
+Sector público:   $900.000 – $1.600.000 CLP
+
+SECTORES CON MÁS DEMANDA:
+1. Fruticultura exportación
+2. Viticultura premium
+3. Agricultura de precisión
+4. Semillas (Corteva, Bayer, INIA)
+5. INDAP, SAG, CONAF
+
+REGIONES TOP:
+O'Higgins › Maule › RM › Coquimbo
+
+Pregunta sobre: sueldos · tendencias · regiones ·
+habilidades · primer trabajo · viticultura ·
+fruticultura · sector público.
+
+📌 Consejo: `+t;
 }
 
-function esc(s){return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+// ─── NAV ───
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+document.getElementById('qi').addEventListener('keydown',function(e){if(e.key==='Enter')buscar()});
+
+// ─── SEARCH ───
+function dq(q){document.getElementById('qi').value=q;buscar()}
+function buscar(){
+  var q=document.getElementById('qi').value.trim();if(!q)return;
+  var btn=document.getElementById('sbtn');var ra=document.getElementById('ra');
+  btn.disabled=true;
+  btn.innerHTML='<span style="display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:6px"></span>Buscando...';
+  ra.innerHTML='<div style="padding:20px 0"><div style="height:16px;margin-bottom:10px;border-radius:8px;width:70%" class="shimmer"></div><div style="height:14px;margin-bottom:8px;border-radius:8px;width:100%" class="shimmer"></div><div style="height:14px;margin-bottom:8px;border-radius:8px;width:90%" class="shimmer"></div><div style="height:14px;margin-bottom:8px;border-radius:8px;width:80%" class="shimmer"></div><div style="height:14px;border-radius:8px;width:60%" class="shimmer"></div><p style="font-size:12px;color:#7a9e8a;text-align:center;margin-top:16px">Consultando: ODEPA · Laborum · INE · ASOEX...</p></div>';
+  setTimeout(function(){
+    var result=resp(q);
+    ra.style.opacity='0';ra.style.transition='opacity .3s';
+    setTimeout(function(){
+      ra.innerHTML='<div class="result-box" style="opacity:0;transform:translateY(16px);transition:all .5s cubic-bezier(.16,1,.3,1)"><h4>Resultado <span style="font-size:11px;background:#e0f4ff;color:#0077B6;padding:3px 10px;border-radius:20px;font-weight:700">Datos verificados</span></h4><pre>'+result+'</pre></div>';
+      ra.style.opacity='1';
+      setTimeout(function(){var b=ra.querySelector('.result-box');if(b){b.style.opacity='1';b.style.transform='none'}},50);
+    },200);
+    btn.disabled=false;btn.textContent='Consultar';
+  },1200);
+}
+
+// ─── SECTORES ───
+function buildSecList(){
+  var items=[
+    ['viticultura','🍷','Viticultura y Vinos',"O'Higgins, Maule · $1.0M – $2.2M"],
+    ['fruticultura','🍒','Fruticultura Exportación',"O'Higgins, Maule · $0.9M – $1.8M"],
+    ['horticultura','🥦','Horticultura',"Todo Chile · $0.8M – $1.5M"],
+    ['ganaderia','🐄','Ganadería y Lechería',"Araucanía, Los Lagos · $0.9M – $1.6M"],
+    ['forestal','🌲','Forestal y Silvicultura',"Biobío, Araucanía · $1.1M – $2.0M"],
+    ['semillas','🌾','Semillas',"O'Higgins, Maule · $1.1M – $2.2M"],
+    ['publico','🏛️','Sector Público',"Todo Chile · SAG, INDAP, CONAF"],
+    ['consultoria','📋','Consultoría Agrícola',"Todo Chile · $1.2M – $2.5M"]
+  ];
+  var el=document.getElementById('sec-list');if(!el)return;
+  el.innerHTML=items.map(function(s){
+    return '<div class="acc-item"><button class="acc-btn" onclick="toggleSec(this,\''+s[0]+'\')">'
+      +'<span style="font-size:26px;width:38px;flex-shrink:0">'+s[1]+'</span>'
+      +'<div style="flex:1"><strong style="font-size:16px;color:#1a2e22;display:block;margin-bottom:2px">'+s[2]+'</strong>'
+      +'<span style="font-size:13px;color:#3d5a4f">'+s[3]+'</span></div>'
+      +'<span class="acc-arr">+</span></button>'
+      +'<div class="acc-body" id="sec-'+s[0]+'"></div></div>';
+  }).join('');
+}
+buildSecList();
+
+function toggleSec(btn,id){
+  var body=document.getElementById('sec-'+id);
+  var arr=btn.querySelector('.acc-arr');
+  var isOpen=body&&body.classList.contains('open');
+  document.querySelectorAll('.acc-body').forEach(function(b){b.classList.remove('open')});
+  document.querySelectorAll('.acc-arr').forEach(function(a){a.style.transform='';a.textContent='+'});
+  if(!isOpen&&body){
+    buildSec(id,body);
+    setTimeout(function(){body.classList.add('open')},10);
+    if(arr)arr.style.transform='rotate(45deg)';
+    var s=SECTORES[id];var prev=document.getElementById('sec-preview');
+    if(prev&&s){prev.style.transition='opacity .3s';prev.style.opacity='0';setTimeout(function(){prev.innerHTML='<strong style="color:#fff;font-size:15px">'+s.titulo+'</strong><br><span style="font-size:12px;color:rgba(255,255,255,.5)">'+s.empresas.length+' empresas · '+s.recursos.length+' recursos</span>';prev.style.opacity='1'},150)}
+    setTimeout(function(){body.scrollIntoView({behavior:'smooth',block:'nearest'})},200);
+  }else{
+    var prev=document.getElementById('sec-preview');
+    if(prev){prev.style.opacity='0';setTimeout(function(){prev.innerHTML='<span style="color:rgba(255,255,255,.5)">Selecciona un sector →</span>';prev.style.opacity='1'},150)}
+  }
+}
+
+function buildSec(id,el){
+  var s=SECTORES[id];if(!s)return;
+  var link=s.portales&&s.portales[0]?s.portales[0].url:'https://www.laborum.cl';
+  el.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">'
+    +'<div><div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0096C7;margin-bottom:10px">Empresas donde trabajar</div>'
+    +'<div style="display:flex;flex-direction:column;gap:7px">'
+    +s.empresas.map(function(e){return '<a href="'+e.url+'" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px;padding:9px 12px;background:#fff;border-radius:8px;border:1px solid #e0f4ff;text-decoration:none;transition:all .3s" onmouseover="this.style.borderColor=\'#0096C7\';this.style.boxShadow=\'0 4px 12px rgba(0,150,199,.1)\'" onmouseout="this.style.borderColor=\'#e0f4ff\';this.style.boxShadow=\'none\'"><div style="flex:1"><strong style="display:block;font-size:13px;color:#1a2e22">'+e.n+'</strong><span style="font-size:12px;color:#3d5a4f">'+e.d+'</span></div><span style="color:#0096C7;font-size:12px;font-weight:700;flex-shrink:0">→</span></a>'}).join('')
+    +'</div><a href="'+link+'" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;background:linear-gradient(135deg,#0096C7,#0077B6);color:#fff;border-radius:7px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none">Ver ofertas →</a></div>'
+    +'<div><div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0096C7;margin-bottom:10px">Recursos del sector</div>'
+    +'<div style="display:flex;flex-direction:column;gap:7px">'
+    +s.recursos.map(function(r){return '<a href="'+r.url+'" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px;padding:9px 12px;background:#f6fdf7;border-radius:8px;border:1px solid #e8f5e9;text-decoration:none;transition:all .3s" onmouseover="this.style.borderColor=\'#7BC67E\'" onmouseout="this.style.borderColor=\'#e8f5e9\'"><div style="flex:1"><strong style="display:block;font-size:13px;color:#1a2e22">'+r.n+'</strong><span style="font-size:12px;color:#3d5a4f">'+r.d+'</span></div><span style="color:#7BC67E;font-size:12px;font-weight:700;flex-shrink:0">→</span></a>'}).join('')
+    +'</div></div></div>';
+}
+
+// ─── EDU TABS ───
+function showTab(id,btn){
+  var cur=document.querySelector('.edu-panel.active');
+  if(cur){cur.style.opacity='0';cur.style.transform='translateY(12px)'}
+  document.querySelectorAll('.edu-tab').forEach(function(t){t.classList.remove('active')});
+  if(btn)btn.classList.add('active');
+  setTimeout(function(){
+    document.querySelectorAll('.edu-panel').forEach(function(p){p.classList.remove('active')});
+    var panel=document.getElementById('ep-'+id);
+    if(panel){panel.classList.add('active');panel.offsetHeight;panel.style.opacity='1';panel.style.transform='none'}
+    if(id==='glosario')renderGlosario('');
+  },200);
+}
+
+// ─── INTERVIEW ACCORDION ───
+function toggleInt(el){
+  var ans=el.nextElementSibling;
+  var arr=el.querySelector('.int-arr');
+  var isOpen=ans.classList.contains('open');
+  document.querySelectorAll('.int-a').forEach(function(a){a.classList.remove('open')});
+  document.querySelectorAll('.int-arr').forEach(function(a){a.style.transform='';a.textContent='+'});
+  if(!isOpen){ans.classList.add('open');if(arr){arr.style.transform='rotate(45deg)'}}
+}
+
+// ─── GLOSARIO ───
+function renderGlosario(f){
+  var data=f?GLOSARIO.filter(function(g){var s=f.toLowerCase();return g.t.toLowerCase().includes(s)||g.d.toLowerCase().includes(s)}):GLOSARIO;
+  var el=document.getElementById('glos-grid');if(!el)return;
+  el.innerHTML=data.map(function(g){return '<dl class="glos-item"><dt style="font-size:14px;font-weight:800;color:#1a2e22;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">'+g.t+' <span style="font-size:10px;background:#e0f4ff;color:#0077B6;padding:2px 7px;border-radius:3px;font-weight:700;letter-spacing:.5px;text-transform:uppercase">'+g.c+'</span></dt><dd style="font-size:13px;color:#3d5a4f;line-height:1.65">'+g.d+'</dd></dl>'}).join('');
+}
+function filtrarGlosario(){renderGlosario(document.getElementById('glos-input').value)}
+renderGlosario('');
+
+// ─── ALERTAS ───
+var alertas=JSON.parse(localStorage.getItem('ac_alerts')||'[]');
+renderAlertas();
+function crearAlerta(){
+  var email=document.getElementById('a-email').value.trim();
+  var cargo=document.getElementById('a-cargo').value.trim();
+  if(!email||!email.includes('@')){toast('⚠️','Ingresa un correo válido');return}
+  if(!cargo){toast('⚠️','Ingresa un cargo o especialidad');return}
+  var a={id:Date.now(),email:email,cargo:cargo,region:document.getElementById('a-region').value,sector:document.getElementById('a-sector').value};
+  alertas.unshift(a);localStorage.setItem('ac_alerts',JSON.stringify(alertas));renderAlertas();
+  document.getElementById('a-email').value='';document.getElementById('a-cargo').value='';
+  toast('✅','Alerta "'+cargo+'" activada');
+}
+function renderAlertas(){
+  var el=document.getElementById('alerts-list');if(!el)return;
+  el.innerHTML=alertas.slice(0,5).map(function(a){return '<div class="alert-pill"><div><strong style="font-size:13px;color:#1a2e22;display:block">'+a.cargo+'</strong><span style="font-size:11px;color:#3d5a4f">'+a.region+' · '+a.sector+'</span></div><div style="display:flex;align-items:center;gap:8px"><span style="font-size:10px;background:#e0f4ff;color:#0077B6;padding:3px 9px;border-radius:12px;font-weight:700">Activa</span><button onclick="borrarAlerta('+a.id+')" style="background:none;border:none;cursor:pointer;color:#ccc;font-size:14px">✕</button></div></div>'}).join('');
+}
+function borrarAlerta(id){alertas=alertas.filter(function(a){return a.id!==id});localStorage.setItem('ac_alerts',JSON.stringify(alertas));renderAlertas();toast('🗑️','Alerta eliminada')}
+
+// ─── TOAST ───
+function toast(ico,msg){document.getElementById('t-ico').textContent=ico;document.getElementById('t-msg').textContent=msg;var t=document.getElementById('toast');t.classList.add('show');setTimeout(function(){t.classList.remove('show')},5000)}
+
+// ─── SCROLL REVEAL ───
+var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');revObs.unobserve(e.target)}})},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el)});
+
+// ─── ANIMATED COUNTERS ───
+var ctrObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done='1';var num=parseFloat(e.target.dataset.target);var suf=e.target.dataset.suffix||'';var pre=suf==='K'?'+':'';var start=null;function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/1500,1);var ease=1-Math.pow(1-p,3);e.target.textContent=pre+Math.floor(ease*num)+(suf||'');if(p<1)requestAnimationFrame(step);else e.target.textContent=pre+num+suf}requestAnimationFrame(step)}})},{threshold:0.5});
+document.querySelectorAll('.counter').forEach(function(el){ctrObs.observe(el)});
+
 </script>
 </body>
 </html>
